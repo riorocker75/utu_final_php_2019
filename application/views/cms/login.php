@@ -3,55 +3,50 @@
 
 		<!-- Main content -->
 		<div class="content-wrapper">
-
+	
 			<!-- Advanced login -->
 			<form action="<?php echo base_url().'index/user_login'; ?>" method="post">
 				<div class="row">
-					<div class="col-md-4 col-md-offset-4">
-						<div class="panel panel-body">
-							<form action="#">
-								<div class="text-center">								
-									<h5 class="content-group">Login ke akun kamu <small class="display-block">Username & Password</small></h5>
-								</div>
+					<div class="col-lg-4 offset-lg-4 col-sm-8 offset-sm-2 col-10 offset-1">
+					
+							<div class="main-login-form">
+		
+							<div class="mlg-title">
+								<h2>Silahkan Login</h2>
 
-								<?php show_alert(); ?>
+							</div>
+							<?php show_alert()?>
+									<div class="form-group">
 
-								<br/>
-								<br/>
-								<div class="form-group has-feedback has-feedback-left">
-									<input type="text" class="form-control" placeholder="Email" name="email" required="required">
-									<div class="form-control-feedback">
-										<i class="icon-user text-muted"></i>
+									<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+									<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
 									</div>
-									<span class="text-danger"><?php echo form_error('email'); ?></span>
-								</div>
-								<div class="form-group has-feedback has-feedback-left">
-									<input type="password" class="form-control" placeholder="Password" name="password" required="required">
-									<div class="form-control-feedback">
-										<i class="icon-lock2 text-muted"></i>
-									</div>
-									<span class="text-danger"><?php echo form_error('password'); ?></span>
-								</div>
 
-								<div class="form-group login-options">
+									<div class="form-group">
+
+									<input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+									</div>
+
 									<div class="row">
-										<div class="col-sm-6">
-
-										</div>
-										<div class="col-sm-6 text-right">
-											<a href="#">Forgot password?</a>
+										<div class="col-12">
+											<a href="" class=" float-right tx-13 red-text text-darken-4 tx-bold-600">Lupa Password ?</a> 
+											
 										</div>
 									</div>
-								</div>
 
-								<div class="form-group">
-									<button type="submit" class="btn bg-blue-400 btn-block">Login <i class="icon-arrow-right14 position-right"></i></button>
-								</div>
-							</form>											
-							<span class="help-block text-center no-margin">Belum punya akun ? :( &nbsp; &nbsp; &nbsp;<a href="<?php echo base_url().'index/daftar'; ?>">Daftar sekarang</a></span>							
-							<span class="help-block text-center no-margin">Dengan melakukan login, anda setuju dengan <a href="#">Syarat &amp; Ketentuan</a> kami</span>							
+									<div class="col-12" style="margin-top:10px;">
+										<button class="btn-login-fullwidth bor-login"> Masuk <i class="fas fa-sign-in-alt"></i></button>
+
+									</div>
+
+									<div class="col-12 d-flex justify-content-center tx-14" style="opacity:0.8;margin-top:10px;margin-bottom:-10px">
+										Belum punya akun? 
+											<a href="<?php echo base_url().'index/user_daftar'?>" class="blue-text text-darken-2 tx-bold-600">&nbsp;daftar</a>
+									
+									</div>
+							</div>
+						
 						</div>
-					</div>
 				</div>
 			</form>
 			<!-- /advanced login -->

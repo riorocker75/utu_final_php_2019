@@ -7,50 +7,49 @@
 			<!-- Advanced login -->
 			<form action="<?php echo base_url().'index/user_daftar'; ?>" method="post">
 				<div class="row">
-					<div class="col-md-4 col-md-offset-4">
-						<div class="panel panel-body">
+					<div class="col-lg-4 offset-lg-4 col-sm-8 offset-sm-2 col-10 offset-1">
+							<div class="main-login-form">
 
-							<form action="<?php echo base_url().'index/user_daftar' ?>" method="post">
-								<div class="text-center">									
-									<h5 class="content-group">Daftar akun baru <small class="display-block">Semua harus di isi</small></h5>
-								</div>
-								<br/>
-								<div class="form-group has-feedback has-feedback-left">
-									<input type="text" class="form-control" name="email" placeholder="Email kamu yang valid">
-									<div class="form-control-feedback">
-										<i class="icon-mention text-muted"></i>
-									</div>
-									<span class="text-danger"><?php echo form_error('email'); ?></span>
-								</div>
+<div class="mlg-title">
+	<h2>Daftar Sekarang</h2>
 
-								<div class="form-group has-feedback has-feedback-left">
-									<input type="text" class="form-control" name="nama" placeholder="Nama Lengkap">
-									<div class="form-control-feedback">
-										<i class="icon-user-check text-muted"></i>
-									</div>
-									<span class="text-danger"><?php echo form_error('nama'); ?></span>
-								</div>
+</div>
+		<div class="form-group">
+		<label for="exampleInputEmail1" style="opacity:0.6">Alamat Email</label>
+		<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" >
+			<small class="form-text text-muted"><span class="text-danger"><?php echo form_error('email'); ?></span></small>
+		</div>
 
-								<div class="form-group has-feedback has-feedback-left">
-									<input type="password" class="form-control" name="password" placeholder="Password">
-									<div class="form-control-feedback">
-										<i class="icon-user-lock text-muted"></i>
-									</div>
-									<span class="text-danger"><?php echo form_error('password'); ?></span>
-								</div>								
-								<br/>								
-								<div class="form-group">								
-									<div class="checkbox">
-										<label>
-											<input type="checkbox" class="styled">
-											Accept <a href="#">terms of service</a>
-										</label>
-									</div>
-								</div>
-								<button type="submit" class="btn bg-blue-400 btn-block">Daftar <i class="icon-circle-right2 position-right"></i></button>
-								<a href="<?php echo base_url(); ?>" class="btn btn-default btn-block" data-dismiss="modal">Batal</a>
-							</form>
-						</div>
+		<div class="form-group">
+		<label for="namalengkap" style="opacity:0.6">Nama Lengkap</label>
+		<input type="text" id="namalengkap" class="form-control" name="nama" >
+		<small class="form-text text-muted"><span class="text-danger"><?php echo form_error('nama'); ?></span></small>
+
+		</div>
+
+		<div class="form-group">
+		<label for="buatpass" style="opacity:0.6">Buat Password</label>
+		<input type="password" class="form-control" id="buatpass" name="password">
+		<small class="form-text text-muted"><span class="text-danger"><?php echo form_error('password'); ?></span></small>
+
+		</div>
+
+		
+
+		<div  style="margin-top:30px;">
+			<button class="btn-login-fullwidth bor-daftar"> Daftar <i class="fas fa-sign-in-alt"></i></button>
+
+		</div>
+
+		<div class="col-lg-10 offset-lg-1 col-sm-12 col-12 tx-14" style="opacity:0.8;margin-top:10px;margin-bottom:-10px;text-align:center">
+			Dengan mendaftar, saya setuju dengan syarat  dan  kebijakan berlaku
+			
+		
+		</div>
+</div>
+
+						
+						
 					</div>
 				</div>
 			</form>

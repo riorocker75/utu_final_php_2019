@@ -45,7 +45,7 @@ class Index extends CI_Controller {
 
 		$config['base_url'] = base_url().'/index/shop/page/';
 		$config['total_rows'] = $posts->num_rows();
-		$config['per_page'] = 8;
+		$config['per_page'] = 12;
 		$config['first_link'] = 'First';
 		$config['first_tag_open'] = '<div>';
 		$config['first_tag_close'] = '</div>';

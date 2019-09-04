@@ -104,7 +104,7 @@ class User extends CI_Controller {
 				'kodepos' => $kodepos
 				);
 			$this->m_dah->update_data($w,$data,'user');
-			redirect(base_url().'user/user_profil/?alert=update');
+			redirect(base_url().'user/?alert=update');
 		}
 	}
 

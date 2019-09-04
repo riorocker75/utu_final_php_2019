@@ -1,25 +1,38 @@
-<div class="page-content">
+<!-- breadrumb section -->
+<section class="breadcrumbs">
+    <div class="breadcrumbs-container">
+        <div class="breadcrumbs-line">
+            <ul>
+                <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
+                <li><a href="">Edit Profile</a> </li>
+            </ul>
+        </div>
+    </div>
 
-	<!-- Main content -->
-	<div class="content-wrapper">	
+</section>
 
+<!-- end breadcrumb -->
 
-		<!-- User profile -->
-		<div class="row">
-			<div class="col-lg-3">
-								
-				<?php $this->load->view('cms/user_sidebar'); ?>
-			</div>
-			<div class="col-lg-9">
-				<div class="panel panel-flat">
-					<div class="panel-heading">
-						<h6 class="panel-title">Profil Saya</h6>						
-					</div>
+<section class="user-profile">
 
-					<div class="panel-body">						
+  <div class="row">
+      <div class="col-lg-10 offset-lg-1 col-sm-10 offset-sm-1 col-10 offset-1">
+          <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                <?php include"user_sidebar.php";?>
+              </div>
+
+              <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+                  <div class="user-sb-main">
+                      <div class="user-sb-main-title">
+                        <p>
+                         <h2>Profil Saya</h2>
+                        </p> 
+                        </div>
 						<?php foreach($profil as $p){ ?>
+                      <div class="user-sb-main-body" style="margin-top:10px">
 						<form action="<?php echo base_url().'user/user_edit_profil_act' ?>" method="post">
-							<div class="form-group">
+						<div class="form-group">
 								<div class="row">
 									<div class="col-md-6">
 										<label>Nama Lengkap</label>
@@ -70,12 +83,8 @@
 										<label>Kode Pos</label>
 										<input type="text" name="kodepos" value="<?php echo $p->kodepos; ?>" class="form-control">
 										<?php echo form_error('kodepos'); ?>
-									</div>										
-								</div>
-							</div>
-
-							<div class="form-group">
-								<div class="row">
+									</div>	
+									
 									<div class="col-md-6">
 										<label>Telpon / HP</label>
 										<input type="text" name="telp" value="<?php echo $p->telp; ?>" class="form-control">
@@ -84,23 +93,24 @@
 								</div>
 							</div>
 
+							
+
 							<div class="form-group">
 								<div class="row">
 									<div class="col-md-6">											
 										<input type="submit" class="btn btn-primary" value="Simpan">											
 									</div>
 								</div>
-							</div>								
+							</div>		
 						</form>
+					  </div>
 						<?php } ?>
-						
-					</div>
-				</div>				
-			</div>			
-		</div>
-		<!-- /user profile -->
+                  </div>
+              </div>
 
-	</div>
-	<!-- /main content -->
+          </div>
 
-</div>
+      </div>
+  </div>
+
+</section>

@@ -73,12 +73,58 @@
     </div>
   
 </footer>
-
-  
-
 <!-- end footer -->
 
 
+<!-- modal login dan daftar -->
+<!-- Modal -->
+<div class="modal fade modal-login" id="login-pembeli" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Masuk Akun</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?php echo base_url().'index/user_login' ?>" method="post">
+        <div class="modal-body">  
+        <div class="form-group">
+             
+              <input type="email" class="form-control tx-14" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+        <div class="form-group">
+      
+          <input type="password" class="form-control tx-14" name="password" id="exampleInputPassword1" placeholder="Password">
+        </div>
+
+             <div class="row">
+                <div class="col-6">
+                 <a href="" class=" float-left tx-13 red-text text-darken-4 tx-bold-600">Lupa Password ?</a> 
+                 
+                </div>
+                <div class="col-6 ">
+                   <a href="<?php echo base_url().'index/user_daftar';?>" class="float-right tx-13 blue-text text-darken-2 tx-bold-600">Daftar akun</a>
+                </div>
+
+             </div>
+
+             <div class="col-12" style="margin-top:10px;">
+               <button type="submit" class="btn-login-fullwidth bor-login"> Masuk <i class="fas fa-sign-in-alt"></i></button>
+
+             </div>
+
+
+        
+          </div>
+      </form>
+     
+    </div>
+  </div>
+</div>
+
+<!-- end modal login dan daftar -->
 
 
 

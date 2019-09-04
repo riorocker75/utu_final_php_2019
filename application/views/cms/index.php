@@ -49,7 +49,13 @@
                     <span style="color:#000;opacity:0.4">(50) ulasan</span>
                   </p>
 
-                  <p class="tx-13" style="margin-top:-5px;color:#000;opacity:0.5"> <i class="fas fa-store-alt"></i> Smart Tani </p>
+                  <p class="tx-13" style="margin-top:-5px;color:#000;opacity:0.5"> <i class="fas fa-store-alt"></i> 
+                  <?php 
+                      $nama_author=$this->m_dah->product_author_detail($p->prod_author)->row();
+                      echo $nama_author->user_name;      
+                    ?> 
+
+                </p>
                 </div>
                 <!-- end harga -->
             </a>

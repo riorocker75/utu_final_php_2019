@@ -1,23 +1,35 @@
-<div class="container m-t-3">
-	<!-- Main content -->
-	<div class="content-wrapper">
-		<!-- User profile -->
+<!-- breadrumb section -->
+<section class="breadcrumbs">
+    <div class="breadcrumbs-container">
+        <div class="breadcrumbs-line">
+            <ul>
+                <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
+                <li><a href="">Invoice Pembelian</a> </li>
+            </ul>
+        </div>
+    </div>
 
-		<div class="row">
-				<?php $this->load->view('cms/user_sidebar'); ?>
-			<div class="col-lg-3">
+</section>
 
+<!-- end breadcrumb -->
 
+<section class="user-profile">
 
-			</div>
-			<div class="col-lg-8">
-				<div class="panel panel-flat timeline-content">
-					<div class="title">
-						<span>Invoice Saya</span>
-					</div>
-
-					<div class="panel-body">
-						<?php show_alert(); ?>
+  <div class="row">
+      <div class="col-lg-10 offset-lg-1 col-sm-10 offset-sm-1 col-12">
+          <div class="row">
+              <div class="col-lg-3 col-md-3 col-sm-12 col-12">
+                <?php include"user_sidebar.php";?>
+              </div>
+              <div class="col-lg-8 col-md-8 col-sm-12 col-12">
+			  	<div class="user-sb-main">
+                      <div class="user-sb-main-title">
+                        <p>
+                         <h2> Invoice Pembelian</h2>
+                        </p>       
+                        </div>
+			 		 <div class="user-sb-main-body">
+					  <?php show_alert(); ?>
 						<div class="table-responsive">
 							<?php if($this->m_dah->edit_data(array('user_id' => $this->session->userdata('user_id')),'invoice')->num_rows()>0){ ?>
 							<table class="table table-bordered">
@@ -74,12 +86,12 @@
 							<?php } ?>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-		<!-- /user profile -->
+				</div>	
+              </div>
 
-	</div>
-	<!-- /main content -->
+          </div>
 
-</div>
+      </div>
+  </div>
+
+</section>

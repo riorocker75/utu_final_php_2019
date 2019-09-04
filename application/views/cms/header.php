@@ -58,18 +58,33 @@
                   <a href=""><i class="fa fa-user"></i></a>
               </li> -->
 
-              <li>
+                <li>
                   <a href=""><i class="fa fa-cart-arrow-down"></i></a>
                 </li>  
-                
+                <?php if($this->session->userdata('user_status') != "login"){?>
                 <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-7px;">
                   <a href="" class="btn-bordered-sm ">Daftar</a>
-                  <a href="" class="btn-bordered-sm">Login</a>
+                  <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm">Login</a>
                 </li>  
               
                 <li class="d-lg-none u-md-block d-sm-inline-block">
-                  <a href="" title="login"><i class="fas fa-sign-in-alt"></i></a>
+                  <a href="" data-toggle="modal" data-target="#login-pembeli" title="login"><i class="fas fa-sign-in-alt"></i></a>
                 </li>
+
+              <?php }else{?>
+              <li class="has_dropdown_side ">
+                    <a href="#" class="">
+                    <i class="fa fa-user white-text" aria-hidden="true"></i></a>
+                  <ul class="dropdown_ct_side">
+                    
+                        <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-home tx-16"></i> Dashboard</a></li>
+                        <li><a href=""><i class="fa fa-user tx-16"></i> Profile</a></a></li>
+                        <li><a href=""><i class="fa fa-briefcase tx-16"></i> Pesanan</a></a></li>
+                        <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16"></i> Logout</a></a></li>
+
+                  </ul>
+                </li>
+              <?php }?>
               
          
           </ul>
@@ -96,18 +111,26 @@
                 <i class="fa fa-cart-arrow-down white-text"></i>
               </a>    
           </li>
-          <li class="has_dropdown_side ">
+          <?php if($this->session->userdata('user_status') != "login"){?>
+            <li>
+              <a href="" class="white-text tx-16" data-toggle="modal" data-target="#login-pembeli" title="Masuk ke akun"> <i class="fas fa-sign-in-alt"></i></a>
+            </li>
+          <?php }else{ ?>
+            <li class="has_dropdown_side ">
             <a href="#" class="">
-             <i class="fa fa-user white-text" aria-hidden="true"></i></a>
+             <i class="fa fa-user white-text"></i></a>
           <ul class="dropdown_ct_side">
             
-                <li><a href=""><i class="fa fa-home tx-16"></i> Dashboard</a></li>
+                <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-home tx-16"></i> Dashboard</a></li>
                 <li><a href=""><i class="fa fa-user tx-16"></i> Profile</a></a></li>
                 <li><a href=""><i class="fa fa-briefcase tx-16"></i> Pesanan</a></a></li>
-                <li><a href=""><i class="fas fa-sign-out-alt tx-16"></i> Logout</a></a></li>
+                <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16"></i> Logout</a></a></li>
 
           </ul>
         </li>
+          <?php }?>  
+
+         
         </ul> 
     </div> 
   

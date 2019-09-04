@@ -242,6 +242,65 @@ body {
   }
 }
 
+.btn-u-md-fullwidth :hover {
+  border: 0 solid transparent !important;
+}
+
+.btn-login-fullwidth {
+  min-width: 100%;
+  border-radius: 3px;
+  padding: 12px 40px;
+  border: 1px solid transparent;
+  margin-bottom: 10px;
+  display: inline-block;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  -webkit-text-decoration: underline transparent !important;
+          text-decoration: underline transparent !important;
+  -webkit-box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+          box-shadow: 0 3px 5px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+}
+
+@media (min-width: 250px) and (max-width: 600px) {
+  .btn-login-fullwidth {
+    padding: 5px 20px;
+  }
+}
+
+.bor-login {
+  border-top: 2px solid #f9a825;
+  border-bottom: 2px solid #f44336;
+  border-left: 2px solid #f9a825;
+  border-right: 2px solid #e91e63;
+  color: #0277bd;
+}
+
+.bor-login:hover {
+  border: 2px solid transparent;
+  background: #00838f;
+  color: #fff;
+}
+
+.bor-daftar {
+  border-top: 2px solid #4caf50;
+  border-bottom: 2px solid #ffa000;
+  border-left: 2px solid #43a047;
+  border-right: 2px solid #f57f17;
+  color: #ff6f00;
+}
+
+.bor-daftar:hover {
+  border: 2px solid transparent;
+  background: #ff6f00;
+  color: #fff;
+}
+
 .box-shadow {
   -webkit-box-shadow: 0 22px 24px rgba(108, 111, 115, 0.1);
           box-shadow: 0 22px 24px rgba(108, 111, 115, 0.1);

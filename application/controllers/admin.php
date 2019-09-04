@@ -1087,6 +1087,9 @@ class Admin extends CI_Controller {
 		$bukalapak = $this->input->post('bukalapak');
 		$tokopedia = $this->input->post('tokopedia');
 		$berat = $this->input->post('berat');
+		$jasa_kirim=$this->input->post('jasa_kirim');
+		$lokasi=$this->input->post('lokasi');
+		$proses_kirim=$this->input->post('proses_kirim');
 
 		$this->form_validation->set_rules('nama','Product Name','required');		
 		$this->form_validation->set_rules('berat','Product berat','required');		
@@ -1107,7 +1110,11 @@ class Admin extends CI_Controller {
 				'prod_price' => $harga,				
 				'prod_berat' => $berat,				
 				'prod_bukalapak' => $bukalapak,				
-				'prod_tokopedia' => $tokopedia			
+				'prod_tokopedia' => $tokopedia,
+				'prod_kirim' => $proses_kirim,
+				'prod_lokasi' => $lokasi,
+				'prod_jasa_kirim' =>$jasa_kirim
+
 				);
 
 			$this->m_dah->insert_data($data,'dah_products');
@@ -1251,6 +1258,10 @@ class Admin extends CI_Controller {
 		$bukalapak = $this->input->post('bukalapak');
 		$tokopedia = $this->input->post('tokopedia');
 		$berat = $this->input->post('berat');
+		$jasa_kirim=$this->input->post('jasa_kirim');
+		$lokasi=$this->input->post('lokasi');
+		$proses_kirim=$this->input->post('proses_kirim');
+
 		$where = array(
 			'prod_id' => $id
 			);
@@ -1274,7 +1285,10 @@ class Admin extends CI_Controller {
 				'prod_price' => $harga,				
 				'prod_berat' => $berat,				
 				'prod_bukalapak' => $bukalapak,				
-				'prod_tokopedia' => $tokopedia			
+				'prod_tokopedia' => $tokopedia,
+				'prod_kirim' => $proses_kirim,
+				'prod_lokasi' => $lokasi,
+				'prod_jasa_kirim' =>$jasa_kirim			
 				);
 
 			$this->m_dah->update_data($where,$data,'dah_products');		

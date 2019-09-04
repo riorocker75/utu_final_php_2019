@@ -150,5 +150,9 @@ class M_dah extends CI_Model{
 		return $this->db->query("select * from dah_taxonomy,dah_product_category,dah_products where dah_taxonomy.taxonomy_child='$id_category' and dah_taxonomy.taxonomy='product_category' and dah_taxonomy.taxonomy_child=dah_product_category.pcat_id and dah_taxonomy.taxonomy_parent=dah_products.prod_id");
 	}
 
+	function product_author_detail($id_author){
+		return $this->db->query("select * from dah_products,dah_users where dah_users.user_id=dah_products.prod_author and prod_author='$id_author' ");
+	}
+
 }
 ?>

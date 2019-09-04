@@ -55,8 +55,8 @@
 
                              <div class="product-single-price">
                                 <h2 class="blue-text text-darken-3"><?php echo "Rp.".number_format($p->prod_price).",-"; ?></h2>
-                                <span>Stock barang: <b>100</b></span>
-                                <p> <span>Berat : <b> <?php echo $p->prod_berat." gram" ?></b></span></p>
+                                <span>Stock produk: <b><?php echo $p->prod_qty ?> </b></span>
+                                <p> <span>Berat : <b> <?php echo $p->prod_berat ?> </b>gram</span></p>
                              </div>
 
                             <div class="single-seller">
@@ -64,7 +64,13 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <ul>
                                             <li>
-                                                Penjual : <a href="">Lapak Laut</a>
+                                                Penjual : <a href="">
+                                                   <?php 
+                                                      $nama_author=$this->m_dah->product_author_detail($p->prod_author)->row();
+                                                      echo $nama_author->user_name;      
+                                                   ?> 
+
+                                                </a>
 
                                             </li>
                                             <li>
@@ -77,7 +83,7 @@
                                             </li>
 
                                             <li>
-                                                Proses Kirim : <b class="green-text text-darken-1">3 hari</b> 
+                                                Proses Kirim : <b class="green-text text-darken-1"><?php echo $p->prod_kirim ?></b> 
                                             </li>
                                         </ul>
 
@@ -85,10 +91,10 @@
                                     <div class="col-lg-6 col-md-6 col-sm-12 col-12">
                                         <ul>
                                             <li>
-                                            Pengirim : <a href="">TIKI,</a> <a href="">JNE,</a>
+                                            Pengirim : <a href=""><?php echo $p->prod_jasa_kirim ?></a>
                                             </li>
                                             <li>
-                                            Lokasi &nbsp;&nbsp;&nbsp;&nbsp;: Binjai
+                                            Lokasi &nbsp;&nbsp;&nbsp;&nbsp;: <?php echo $p->prod_lokasi ?>
                                             </li>
 
                                             <li>

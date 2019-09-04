@@ -72,6 +72,35 @@
 				</div>				
 			</div>
 
+			<div class="panel">
+				<div class="panel-heading">
+					<header>Lokasi</header>
+				</div>			
+				<div class="panel-body">	
+					<input name="lokasi" class="form-control">
+				</div>				
+			</div>
+
+
+			<div class="panel">
+				<div class="panel-heading">
+					<header>Proses Kirim</header>
+				</div>			
+				<div class="panel-body">	
+					<input name="proses_kirim" class="form-control">
+				</div>				
+			</div>
+
+			<div class="panel">
+				<div class="panel-heading">
+					<header>Jasa Pengiriman</header>
+				</div>			
+				<div class="panel-body">	
+					<input name="jasa_kirim" class="form-control">
+				</div>				
+			</div>
+
+
 
 
 			<div class="panel">
