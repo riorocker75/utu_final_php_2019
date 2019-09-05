@@ -1,193 +1,195 @@
-<div class="container m-t-3">
-    <div class="content-wrapper">
-        <ul class="breadcrumb heading-text">
-            <li><a href="<?php echo base_url(); ?>"><i class="icon-home2 position-left"></i> Home</a></li>
-            <li class="active">Pembayaran</li>
-        </ul>
-        <div class="row">
-            <div class="col-md-8">
-                <?php if($this->session->userdata('user_status')=="login"){ ?>
-                <div class="panel panel-flat">
-                           <div class="title"><span>Konfirmasi Pengiriman</span></div>
+<!-- breadrumb section -->
+<section class="breadcrumbs">
+    <div class="breadcrumbs-container">
+        <div class="breadcrumbs-line">
+            <ul>
+                <li><a href="<?php echo base_url()?>">Home</a> </li>
+                <li><a href="">Pembayaran</a> </li>
+            </ul>
+        </div>
+    </div>
 
-                    <div class="panel-body">
-                        <form action="<?php echo base_url().'index/order' ?>" method="post">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Atas Nama</label>
-                                        <input type="text" name="nama" class="form-control" placeholder="Nama lengkap penerima .." required="required">
-                                        <input type="hidden" name="ongkir" class="ongkir" required="required">
-                                        <?php echo "<span class='text-warning'>".form_error('nama')."</span>"; ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label>Telp / HP</label>
-                                        <input type="text" name="telp" class="form-control" placeholder="Telp / HP .." required="required">
-                                        <?php echo "<span class='text-warning'>".form_error('telp')."</span>"; ?>
-                                    </div>
-                                </div>
-                            </div>
+</section>
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                    <label>Alamat Lengkap</label>
-                                        <input type="text" name="alamat" class="form-control" placeholder="Alamat lengkap .." required="required">
-                                        <input type="hidden" name="pembayaran" class="pembayaran">
-                                        <?php echo "<span class='text-warning'>".form_error('alamat')."</span>"; ?>
-                                    </div>
-                                </div>
-                            </div>
+<!-- end breadcrumb -->
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label>Provinsi</label>
-                                    <?php
-                                    $province_ori = json_decode(GetProv(), TRUE);
-                                    echo "<select name='prov_origin' required class='form-control form-control-sm form-provinsi2' id='prov_origin'>";
-                                    echo "<option value=''>Pilih Provinsi ..</option>";
-                                    for ($i=1; $i < count($province_ori['rajaongkir']['results']); $i++) {
-                                        echo "<option value='".$province_ori['rajaongkir']['results'][$i]['province_id']."' class='jne tiki pos all' >".$province_ori['rajaongkir']['results'][$i]['province']."</option>";
-                                    }
-                                    echo "</select>";
-                                    ?>
-                                    <?php echo "<span class='text-warning'>".form_error('prov_origin')."</span>"; ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Kota</label>
-                                        <?php
-                                        echo "<select name='city_origin' required class='form-control form-control-sm form-kota2' id='prov_origin'>";
-                                        echo "<option value=''>Pilih provinsi terlebih dulu</option>";
-                                        echo "</select>";
-                                        ?>
-                                        <?php echo "<span class='text-warning'>".form_error('city_origin')."</span>"; ?>
-                                    </div>
-                                </div>
-                            </div>
+<section class="checkout-product">
+    <div class="container">
+     
+           
 
+       
+                 <div class="row">
+                    <!-- detail bayar  -->
+                    <?php if($this->session->userdata('user_status')=="login"){ ?>
+                    <div class="col-lg-8 col-md-6 col-sm-12 col-12">
+                        <div class="laman-bayar">
 
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Kecamatan</label>
-                                        <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan .." required="required">
-                                        <?php echo "<span class='text-warning'>".form_error('kecamatan')."</span>"; ?>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                    <label>Kode Pos</label>
-                                        <input type="text" name="kodepos" class="form-control" placeholder="Kode pos .." required="required">
-                                        <?php echo "<span class='text-warning'>".form_error('kodepos')."</span>"; ?>
-                                    </div>
-                                </div>
-                            </div>
+                            <div class="laman-bayar-title">
+                            <h2>Konfirmasi Pembayaran</h2>
+                            </div>  
 
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <label>Catatan Tambahan</label>
-                                        <input type="text" name="catatan" class="form-control" placeholder="Jenis Ikan ,Ukuran / dan lain-lain ..">
-                                    </div>
-                                </div>
-                            </div>
-                             <div class="row">
-                                <div class="col-md-12">
-                                    <div class="table-responsive">
-                                        <?php echo "<span class='text-warning'>".form_error('kurir')."</span>"; ?>
-                                        <div class="tempat-cost"></div>
-
-                                    </div>
-                                </div>
-                            </div>
-                            <br/>
-                            <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <input type="submit" class="btn btn-primary pull-right" value="Buat Pesanan">
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <?php }else{ ?>
-                <div class="panel panel-flat">
-                    <div class="title">
-                        <span>Silahkan login atau daftar akun untuk melanjutkan pembayaran.</span>
-                    </div>
-
-                    <div class="panel-body">
-                        <br/><br/>
-                        <?php show_alert(); ?>
-                        <div class="row">
-                            <div class="col-md-6 col-md-offset-3">
-                                <div class="login-form">
-                                    <!-- Form -->
-
-                                    <div class="tab-content">
-                                        <div>
-                                            <form action="<?php echo base_url().'index/pembayaran_user_login'; ?>" method="post">
-                                                <div class="text-center">
-                                                    <h5 class="content-group">Login ke akun kamu <small class="display-block">Username & Password</small></h5>
-                                                </div>
-
-                                                <div class="form-group has-feedback has-feedback-left">
-                                                    <input type="text" class="form-control" placeholder="Email" name="email" required="required">
-                                                    <div class="form-control-feedback">
-                                                        <i class="icon-user text-muted"></i>
-                                                    </div>
-                                                    <?php echo "<span class='text-warning'>".form_error('email')."</span>"; ?>
-                                                </div>
-
-                                                <div class="form-group has-feedback has-feedback-left">
-                                                    <input type="password" class="form-control" placeholder="Password" name="password" required="required">
-                                                    <div class="form-control-feedback">
-                                                        <i class="icon-lock2 text-muted"></i>
-                                                    </div>
-                                                    <?php echo "<span class='text-warning'>".form_error('password')."</span>"; ?>
-                                                </div>
-
-                                                <div class="form-group login-options">
-                                                    <div class="row">
-                                                        <div class="col-sm-12 text-center">
-                                                            Belum punya akun ? yuk <a href="<?php echo base_url().'index/user_daftar' ?>">daftar</a>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-
-                                                <div class="form-group">
-                                                    <button type="submit" class="btn btn-block" style="color:white; background-color:#1565C0;">Login <i class="icon-arrow-right14 position-right"></i></button>
-                                                </div>
-                                            </form>
-                                            <span class="help-block text-center no-margin">Dengan melakukan login, anda setuju dengan <a href="#">Syarat &amp; Ketentuan</a> kami</span>
+                            <div class="laman-bayar-body">    
+                            <form action="<?php echo base_url().'index/order' ?>" method="post">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Atas Nama</label>
+                                            <input type="text" name="nama" class="form-control" placeholder="Nama lengkap penerima .." required="required">
+                                            <input type="hidden" name="ongkir" class="ongkir" required="required">
+                                            <?php echo "<span class='text-warning'>".form_error('nama')."</span>"; ?>
                                         </div>
                                     </div>
-                                    <!-- /form -->
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                        <label>Telp / HP</label>
+                                            <input type="text" name="telp" class="form-control" placeholder="Telp / HP .." required="required">
+                                            <?php echo "<span class='text-warning'>".form_error('telp')."</span>"; ?>
+                                        </div>
+                                    </div>
                                 </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                        <label>Alamat Lengkap</label>
+                                            <input type="text" name="alamat" class="form-control" placeholder="Alamat lengkap .." required="required">
+                                            <input type="hidden" name="pembayaran" class="pembayaran">
+                                            <?php echo "<span class='text-warning'>".form_error('alamat')."</span>"; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                        <label>Provinsi</label>
+                                        <?php
+                                        $province_ori = json_decode(GetProv(), TRUE);
+                                        echo "<select name='prov_origin' required class='form-control form-control-sm form-provinsi2' id='prov_origin'>";
+                                        echo "<option value=''>Pilih Provinsi ..</option>";
+                                        for ($i=1; $i < count($province_ori['rajaongkir']['results']); $i++) {
+                                            echo "<option value='".$province_ori['rajaongkir']['results'][$i]['province_id']."' class='jne tiki pos all' >".$province_ori['rajaongkir']['results'][$i]['province']."</option>";
+                                        }
+                                        echo "</select>";
+                                        ?>
+                                        <?php echo "<span class='text-warning'>".form_error('prov_origin')."</span>"; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Kota</label>
+                                            <?php
+                                            echo "<select name='city_origin' required class='form-control form-control-sm form-kota2' id='prov_origin'>";
+                                            echo "<option value=''>Pilih provinsi terlebih dulu</option>";
+                                            echo "</select>";
+                                            ?>
+                                            <?php echo "<span class='text-warning'>".form_error('city_origin')."</span>"; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label>Kecamatan</label>
+                                            <input type="text" name="kecamatan" class="form-control" placeholder="Kecamatan .." required="required">
+                                            <?php echo "<span class='text-warning'>".form_error('kecamatan')."</span>"; ?>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                        <label>Kode Pos</label>
+                                            <input type="text" name="kodepos" class="form-control" placeholder="Kode pos .." required="required">
+                                            <?php echo "<span class='text-warning'>".form_error('kodepos')."</span>"; ?>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <label>Catatan Tambahan</label>
+                                            <input type="text" name="catatan" class="form-control" placeholder="Jenis Ikan ,Ukuran / dan lain-lain ..">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="table-responsive">
+                                            <?php echo "<span class='text-warning'>".form_error('kurir')."</span>"; ?>
+                                            <div class="tempat-cost"></div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <br/>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <input type="submit" class="btn btn-primary pull-right" value="Buat Pesanan">
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
                             </div>
-                        </div>
-
-                        <br/><br/>
-
+                     </div>  
                     </div>
-                </div>
-                <?php } ?>
-            </div>
-            <div class="col-md-4">
-                <div class="panel panel-flat">
-                    <div class="title">
-                        <span>Belanjaan</span>
-                    </div>
+                    <?php }else{ ?>
+                        <div class="col-lg-4 offset-lg-3 col-md-6 col-sm-12 col-12">
+                            
+                            <form action="<?php echo base_url().'index/user_login'; ?>" method="post">
+							<div class="main-login-form">
+		
+                                <div class="mlg-title">
+                                    <h2 class="tx-18">Silahkan login untuk pembayaran</h2>
+                                </div>
+							<?php show_alert()?>
+									<div class="form-group">
 
-                    <div class="panel-body">
-                        <?php if(count($this->cart->contents())>0){ ?>
+									<input type="email" class="form-control" name="email" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
+									<!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+									</div>
+
+									<div class="form-group">
+
+									<input type="password" class="form-control" name="password" id="exampleInputPassword1" placeholder="Password">
+									</div>
+
+									<div class="row">
+										<div class="col-12">
+											<a href="" class=" float-right tx-13 red-text text-darken-4 tx-bold-600">Lupa Password ?</a> 
+											
+										</div>
+									</div>
+
+									<div class="col-12" style="margin-top:10px;">
+										<button class="btn-login-fullwidth bor-login"> Masuk <i class="fas fa-sign-in-alt"></i></button>
+
+									</div>
+
+									<div class="col-12 d-flex justify-content-center tx-14" style="opacity:0.8;margin-top:10px;margin-bottom:-10px">
+										Belum punya akun? 
+											<a href="<?php echo base_url().'index/user_daftar'?>" class="blue-text text-darken-2 tx-bold-600">&nbsp;daftar</a>
+									
+									</div>
+							</div>
+		            	</form>
+                         </div>
+                    <?php } ?>   
+                    <!-- end detail bayar -->
+
+                    <!-- sidebar detail -->
+                        <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                             <div class="laman-bayar">
+
+                                <div class="laman-bayar-title">
+                                <h2>Ringkasan pembayaran</h2>
+                                </div>  
+
+                                <div class="laman-bayar-body">
+                                <?php if(count($this->cart->contents())>0){ ?>
                         <div class="table-responsive">
                             <table class="table">
                                 <?php foreach($this->cart->contents() as $item){ ?>
@@ -208,7 +210,7 @@
                                     </td>
                                 </tr>
                                  <tr>
-                                    <td colspan="2" class="text-right">Total Pembayaran (Harga + Ongkir)</td>
+                                    <td colspan="2" class="text-left">Total harga (Harga + Ongkir)</td>
                                     <td class="no-padding-left no-padding-right text-right text-bold">
                                         <span class="text-pembayaran"></span>
                                     </td>
@@ -220,9 +222,14 @@
                         <br/>
                         <p class="text-center">Keranjang masih kosong. Ayo <a href="<?php echo base_url().'index/shop'; ?>">belanja</a>.</p>
                         <?php } ?>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                </div>
+                             </div>       
+                        </div>
+                    <!-- end sidebar detail -->
+                 </div> 
+            
+        
+      
+
     </div>
-</div>
+</section>

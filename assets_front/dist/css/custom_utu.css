@@ -41,7 +41,7 @@
 }
 
 .search-right a {
-  color: #fff !important;
+  color: #fff;
   -webkit-text-decoration: underline transparent;
           text-decoration: underline transparent;
 }
@@ -917,7 +917,7 @@ a.prod-price {
 
 @media (max-width: 768px) {
   .user-sidebar-profile {
-    height: 42vh;
+    height: 32vh;
   }
 }
 
@@ -1003,6 +1003,12 @@ a.prod-price {
   line-height: 1;
 }
 
+@media (min-width: 200px) and (max-width: 576px) {
+  .user-sb-main-title h2 {
+    font-size: 18px;
+  }
+}
+
 .user-sb-main-body {
   padding: 10px 20px;
 }
@@ -1017,4 +1023,27 @@ a.prod-price {
   flex-flow: row wrap;
   padding: 5px 5px;
   text-align: right;
+}
+
+.laman-bayar {
+  padding: 0 0 10px 0;
+  background: #fff;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+
+.laman-bayar-title {
+  padding: 15px 15px;
+  border-bottom: 1px solid #dddfe0;
+  background: #FAFAFA;
+}
+
+.laman-bayar-title h2 {
+  font-size: 20px;
+}
+
+.laman-bayar-body {
+  padding: 20px 15px;
 }

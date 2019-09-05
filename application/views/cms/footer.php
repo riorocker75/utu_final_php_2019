@@ -1,3 +1,21 @@
+
+<div class="modal-cart modal fade" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			</div>
+			<div class="modal-body">
+				<p class="text-center">Produk berhasil di masukkan ke keranjang.</p>
+			</div>
+			<div class="modal-footer">
+				<a href="#" class="btn btn-default btn-sm" data-dismiss="modal">Lanjut belanja</a>
+				<a href="<?php echo base_url().'index/keranjang' ?>" class="btn btn-primary btn-sm">Keranjang / Pembayaran</a>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
 <!-- footer start -->
 <footer class="footer-class">
   <div class="container">
@@ -127,23 +145,190 @@
 <!-- end modal login dan daftar -->
 
 
-
-
-
-
-
-
-
     <script src="<?php echo base_url()?>assets_front/js/jquery.min.js" ></script>
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
-    <script src="<?php echo base_url()?>assets_front/js/bootstrap.js" ></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    
+    <script src="<?php echo base_url()?>assets_front/js/core_utu.js"></script>
+	<script src="<?php echo base_url()?>assets_front/js/input-spinner.js" ></script>
+
     <script>
       $( function() {
         $( "#draggable" ).draggable();
       } );
       </script>
+
+<script type="text/javascript">
+			$(document).ready(function(){
+				$('.diki-tooltip').tooltip();
+
+					$('body').on("click",".btn-addtocart",function(){
+						var id = $(this).attr('id');
+						var data = "id="+id;
+						$.ajax({
+							type: 'POST',
+							url: "<?php echo base_url(); ?>" + "index/addtocart",
+							data: data,
+							success: function(){
+								$('.modal-cart').modal();
+							},
+							beforeSend: function(){
+								$('#'+id).after("<span class='ajax-cart heading-text pull-right'><i class='icon-spinner2 spinner position-left'></i></span>");
+								$('#'+id).hide();
+							},
+							complete: function(){
+								$('.ajax-cart').hide();
+								$('#'+id).show();
+							},
+							error: function() {
+								alert("Gagal menambahkan produk ke keranjang !");
+							}
+						});
+					});
+
+
+
+
+
+	$('body').on("change",".form-provinsi",function(){
+				var provinsi = $(this).val();
+				var data = "provinsi="+provinsi;
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo base_url(); ?>" + "index/get_kota/",
+					data: data,
+					success: function(html){
+						$('.form-kota').html(html);
+					},
+					beforeSend: function(){
+						$('.form-kota').after("<center><span class='ajax-ongir heading-text text-center'><i class='icon-spinner2 spinner position-left'></i></span></center>");
+						$('.form-kota').hide();
+					},
+					complete: function(){
+						$('.ajax-ongir').hide();
+						$('.form-kota').show();
+					},
+					error: function() {
+						alert("Gagal mendapatkan data ongkir!");
+					}
+				});
+			});
+
+			$('body').on("change",".form-kota",function(){
+				var kota = $(this).val();
+				var id_prod = $('.id_prod').val();
+				var kurir = $('.form-kurir').val();
+				var data = "kota="+kota+"&id_prod="+id_prod;
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo base_url(); ?>" + "index/get_cost/",
+					data: data,
+					success: function(html){
+						$('.tempat-cost').html(html);
+					},
+					beforeSend: function(){
+						$('.tempat-cost').before("<center><span class='ajax-cost heading-text text-center'><i class='icon-spinner2 spinner position-left'></i></span></center>");
+					},
+					complete: function(){
+						$('.ajax-cost').hide();
+					},
+					error: function() {
+						alert("Gagal mendapatkan data ongkir!");
+					}
+				});
+			});
+
+
+
+			// payment ship
+			$('body').on("change",".form-provinsi2",function(){
+				var provinsi = $(this).val();
+				var data = "provinsi="+provinsi;
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo base_url(); ?>" + "index/get_kota2/",
+					data: data,
+					success: function(html){
+						$('.form-kota2').html(html);
+					},
+					beforeSend: function(){
+						$('.form-kota2').after("<center><span class='ajax-ongir heading-text text-center'><i class='icon-spinner2 spinner position-left'></i></span></center>");
+						$('.form-kota2').hide();
+					},
+					complete: function(){
+						$('.ajax-ongir').hide();
+						$('.form-kota2').show();
+					},
+					error: function() {
+						alert("Gagal mendapatkan data ongkir!");
+					}
+				});
+			});
+
+			$('body').on("change",".form-kota2",function(){
+				var kota = $(this).val();
+				var data = "kota="+kota;
+				$.ajax({
+					type: 'POST',
+					url: "<?php echo base_url(); ?>" + "index/get_cost2/",
+					data: data,
+					success: function(html){
+						$('.tempat-cost').html(html);
+					},
+					beforeSend: function(){
+						$('.tempat-cost').before("<center><span class='ajax-cost heading-text text-center'><i class='icon-spinner2 spinner position-left'></i></span></center>");
+					},
+					complete: function(){
+						$('.ajax-cost').hide();
+					},
+					error: function() {
+						alert("Gagal mendapatkan data ongkir!");
+					}
+				});
+			});
+
+			$('body').on("change",".pilih-kurir",function(){
+						var cost = $(this).attr('id');
+						var total = $('.pembayaran-total').attr('id');
+						var x = parseInt(total)+parseInt(cost);
+						$('.text-ongkos-kirim').html("Rp. "+cost+" ,-");
+						$('.text-pembayaran').html("Rp. "+ x +" ,-");
+						$('.pembayaran').val(x);
+						$('.ongkir').val(cost);
+					});
+			// akhir pembayaran
+			$('body').on("click",".btn-hide-alert",function(){
+						$(this).parent().hide();
+					});
+
+					$(".modal-cart").modal("hide").on("hidden.bs.modal", function () {
+						location.reload();
+					});
+
+			$('input[type="submit"]').on("click",function(){
+					$(this).addClass('disabled');
+				});
+
+
+
+				function readCookie(name) {
+							var nameEQ = name + "=";
+							var ca = document.cookie.split(';');
+							for (var i = 0; i < ca.length; i++) {
+								var c = ca[i];
+								while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+								if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+							}
+							return null;
+						}
+	// akhir public
+		});
+				</script>
+	<script>
+            $(".input-spinner").inputSpinner()
+    </script>  
+ 
       
   </body>
 </html>

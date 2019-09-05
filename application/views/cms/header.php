@@ -59,7 +59,83 @@
               </li> -->
 
                 <li>
-                  <a href=""><i class="fa fa-cart-arrow-down"></i></a>
+                  <!-- start cart aksi -->
+                   <?php if(count($this->cart->contents())>0){ ?>
+                    <div class="cart-view">
+                        <p> 
+                          <a><i class="fa fa-cart-arrow-down"></i></a>
+                          <span><?php echo count($this->cart->contents()); ?></span>
+                        </p>
+
+                        <div class="ket-cart">
+                          <div class="identity-cart">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                         
+                          <div class="ket-cart-title">
+                              Keranjang Belanja <b class="float-right tx-bold-500 tx-14">(<?php echo count($this->cart->contents()); ?>)</b>
+                          </div>
+                          <?php if(count($this->cart->contents())>0){ ?>
+                              <div class="ket-cart-body">
+                                 <?php foreach($this->cart->contents() as $item){ ?>
+                                  <div class="ket-cb-img">
+                                    <!-- start gambar produk -->
+                                    <?php 
+                                          if($item['options']['gambar']!=""){
+                                            echo"<img src='".base_url().'dah_image/products/'.$item['options']['gambar']."' alt='product'>";
+                                          }else{
+                                              echo "<img src='".base_url()."dah_image/default/no_product.jpg' alt='product'>";
+                                          }
+                                     ?>
+                                     <!-- akhir  dari gambar -->
+
+                                    <div class="ket-cb-nama">
+                                      <a href="<?php echo base_url().'produk/'.$item['id'].'-'.create_slug($item['name']) ?>" class="tx-12"><?php echo substr(strip_tags($item['name']),0,55) ?></a>
+                                      <p class="tx-12 blue-text text-accent-3 tx-bold-600">Rp. <?php echo number_format($item['price']).' ,-' ?></p>
+                                    </div>
+
+                                  </div> 
+                                 <?php }?>
+                                  
+                                 <div class="ket-cart-total">
+                                    <p class="float-right">Total :&nbsp;&nbsp; 
+                                      <b class="blue-text text-accent-3"> <?php echo "Rp.". number_format($this->cart->total()).',-' ?></b>
+                                    </p>
+                                 </div>
+
+                                 <div class="col-12" style="margin-bottom:-15px;">
+                                        <a href="<?php echo base_url().'index/pembayaran' ?>" class="btn-beli-fullwidth" style="background:#00838f">Bayar Langsung</a>
+                                          
+                                 </div>
+                               
+                              </div>
+                              <!-- end body cart -->
+
+                               <!-- cart-footer -->
+                                <div class="ket-cart-footer">
+                                    <a href="<?php echo base_url().'index/keranjang'; ?>">Lihat Keranjang</a>
+                                </div>            
+                              <!-- end cart-footer -->
+                          <?php }else{?>
+                            <div class="ket-cart-body">
+                              <p style="color:#c1c23;font-size:13px;text-align:center;">Keranjang masih kosong</p>  
+                            </div>
+
+                            <div class="ket-cart-footer">
+                             <a href=""> Belanja dulu ya </a>
+                            </div>
+                          <?php }?> 
+                          
+                         
+                        </div>
+
+                        
+                    </div>
+                    <?php }else{ ?>
+                        <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                    <?php } ?>
+                   <!-- end cart aksi    -->
+                 
                 </li>  
                 <?php if($this->session->userdata('user_status') != "login"){?>
                 <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-7px;">
@@ -107,9 +183,80 @@
       <div class="float-right">
         <ul class="nav-bawah-right d-md-none d-sm-none">
           <li>
-              <a href="">
-                <i class="fa fa-cart-arrow-down white-text"></i>
-              </a>    
+             <!-- start cart aksi -->
+             <?php if(count($this->cart->contents())>0){ ?>
+                    <div class="cart-view">
+                        <p> 
+                          <a><i class="fa fa-cart-arrow-down white-text"></i></a>
+                          <span><?php echo count($this->cart->contents()); ?></span>
+                        </p>
+
+                        <div class="ket-cart">
+                         
+                         
+                          <div class="ket-cart-title">
+                              Keranjang Belanja <b class="float-right tx-bold-500 tx-14">(<?php echo count($this->cart->contents()); ?>)</b>
+                          </div>
+                          <?php if(count($this->cart->contents())>0){ ?>
+                              <div class="ket-cart-body">
+                                 <?php foreach($this->cart->contents() as $item){ ?>
+                                  <div class="ket-cb-img">
+                                    <!-- start gambar produk -->
+                                    <?php 
+                                          if($item['options']['gambar']!=""){
+                                            echo"<img src='".base_url().'dah_image/products/'.$item['options']['gambar']."' alt='product'>";
+                                          }else{
+                                              echo "<img src='".base_url()."dah_image/default/no_product.jpg' alt='product'>";
+                                          }
+                                     ?>
+                                     <!-- akhir  dari gambar -->
+
+                                    <div class="ket-cb-nama">
+                                      <a href="<?php echo base_url().'produk/'.$item['id'].'-'.create_slug($item['name']) ?>" class="tx-12"><?php echo substr(strip_tags($item['name']),0,55) ?></a>
+                                      <p class="tx-12 blue-text text-accent-3 tx-bold-600">Rp. <?php echo number_format($item['price']).' ,-' ?></p>
+                                    </div>
+
+                                  </div> 
+                                 <?php }?>
+                                  
+                                 <div class="ket-cart-total">
+                                    <p class="float-right">Total :&nbsp;&nbsp; 
+                                      <b class="blue-text text-accent-3"> <?php echo "Rp.". number_format($this->cart->total()).',-' ?></b>
+                                    </p>
+                                 </div>
+
+                                 <div class="col-12" style="margin-bottom:-15px;">
+                                        <a href="<?php echo base_url().'index/pembayaran' ?>" class="btn-beli-fullwidth white-text" style="background:#00838f">Bayar Langsung</a>
+                                          
+                                 </div>
+                               
+                              </div>
+                              <!-- end body cart -->
+
+                               <!-- cart-footer -->
+                                <div class="ket-cart-footer">
+                                    <a href="<?php echo base_url().'index/keranjang'; ?>">Lihat Keranjang</a>
+                                </div>            
+                              <!-- end cart-footer -->
+                          <?php }else{?>
+                            <div class="ket-cart-body">
+                              <p style="color:#c1c23;font-size:13px;text-align:center;">Keranjang masih kosong</p>  
+                            </div>
+
+                            <div class="ket-cart-footer">
+                             <a href=""> Belanja dulu ya </a>
+                            </div>
+                          <?php }?> 
+                          
+                         
+                        </div>
+
+                        
+                    </div>
+                    <?php }else{ ?>
+                        <a href=""> <i class="fa fa-cart-plus white-text" aria-hidden="true"></i></a>
+                    <?php } ?>
+                   <!-- end cart aksi    -->   
           </li>
           <?php if($this->session->userdata('user_status') != "login"){?>
             <li>

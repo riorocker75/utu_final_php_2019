@@ -25,7 +25,7 @@
 			  	<div class="user-sb-main">
                       <div class="user-sb-main-title">
                         <p>
-                         <h2> Invoice Pembelian</h2>
+                         <h2> Transaksi Pembelian</h2>
                         </p>       
                         </div>
 			 		 <div class="user-sb-main-body">

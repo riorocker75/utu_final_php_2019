@@ -43,7 +43,7 @@
   }
 
   a {
-    color: #fff !important;
+    color: #fff ;
     text-decoration: underline transparent;
     i {
       font-size: 20px;
@@ -1031,7 +1031,7 @@ font-size: 16px;
     overflow-y: auto;
   
     @media (max-width:768px){
-      height: 42vh;
+      height: 32vh;
     }
 }
 
@@ -1096,7 +1096,12 @@ box-shadow: $box-shadow-1dp;
 .user-sb-main-title{
   border-bottom: 1px solid #d1d2d3;
   padding:15px 20px;
-  h2{font-size: 22px;font-weight: 600;line-height: 1;}
+  h2{
+    font-size: 22px;font-weight: 600;line-height: 1;
+    @media (min-width:200px)and(max-width:576px){
+      font-size: 18px;
+    }
+  }
 }
 .user-sb-main-body{
   padding: 10px 20px;
@@ -1115,3 +1120,23 @@ box-shadow: $box-shadow-1dp;
  
 }
 // end user-profile
+
+// laman pembayaran
+.laman-bayar{
+  padding:0 0 10px 0;
+  background: #fff;
+  box-shadow: $box-shadow-2dp;
+  border-radius: 4px;
+  margin-bottom: 20px;
+}
+.laman-bayar-title{
+  padding:15px 15px;
+  h2{font-size: 20px;}
+  border-bottom:1px solid #dddfe0;
+  background: #FAFAFA;
+}
+.laman-bayar-body{
+  padding: 20px 15px;
+  
+}
+// end laman pembayaran

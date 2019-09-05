@@ -3,8 +3,8 @@
     <div class="breadcrumbs-container">
         <div class="breadcrumbs-line">
             <ul>
-                <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
-                <li><a href="">Edit Profile</a> </li>
+                <li><a href="<?php echo base_url()?>">Home</a> </li>
+                <li><a href="">Ubah Profil</a> </li>
             </ul>
         </div>
     </div>

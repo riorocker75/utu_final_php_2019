@@ -1,106 +1,144 @@
-<div class="container m-t-3">
-      <div class="row">
+<!-- breadrumb section -->
+<section class="breadcrumbs">
+    <div class="breadcrumbs-container">
+        <div class="breadcrumbs-line">
+            <ul>
+                <li><a href="<?php echo base_url()?>">Home</a> </li>
+                <li><a href="">Keranjang Belanja</a> </li>
+            </ul>
+        </div>
+    </div>
 
-        <!-- Shopping Cart List -->
+</section>
 
-        <div class="col-md-9">
-          <?php show_alert(); ?>
-                 <?php if(count($this->cart->contents())>0){ ?>
-          <div class="title"><span>Isi Keranjang Belanja</span></div>
-          <div class="table-responsive">
-             <form action="<?php echo base_url().'index/update_cart' ?>" method="post">
-            <table class="table table-bordered table-cart">
-              <thead>
-                <tr>
-                  <th>Pesanan</th>
-                  <th>Nama</th>
-                  <th>Jumlah</th>
-                  <th>Harga </th>
-                  <th>Hapus</th>
-                </tr>
-              </thead>
-              <tbody>
-                <?php foreach($this->cart->contents() as $item){ ?>
-                <tr>
-                  <td class="img-cart">
+<!-- end breadcrumb -->
+
+<!-- checkout product-->
+<section class="checkout-product">
+    <div class="container">
+    <?php show_alert(); ?>
+    <?php if(count($this->cart->contents())>0){ ?>
+     <?php foreach($this->cart->contents() as $item){ ?>
+      <form action="<?php echo base_url().'index/update_cart' ?>" method="post">
+        <div class="check-main-product">
+            <div class="title-checkout-product">
+                <i class="fas fa-store"></i> Nama Penjual
+
+                <a href="<?php echo base_url().'index/removefromcart/'.$item['rowid']; ?>" class="float-right d-none d-sm-block d-md-block d-lg-none d-block d-xl-none diki-tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Belanja">Hapus</a>
+            </div>
+            <div class="row">
+                <div class="col-lg-2 col-md-3 col-sm-3 col-5">
+                    <div class="checkout-img">
                     <?php if($item['options']['gambar']!=""){
 
-                    echo  "<img alt='Product' src='".base_url().'dah_image/products/'.$item['options']['gambar']."' class='img-thumbnail'>";
-                  }else{
-                    echo  "<img alt='Product' src='".base_url()."dah_image/default/no_product.jpg' class='img-thumbnail'>";
-                  }
-                  ?>
-                  </td>
-                  <td>
-                    <p><a href="<?php echo base_url().'produk/'.$item['id'].'-'.create_slug($item['name']) ?>" class="d-block"><?php echo $item['name'] ?></a></p>
-
-                  </td>
-                  <td class=""><input type="number" name="jumlah_produk[]" value="<?php echo $item['qty'] ?>" class="form-control text-center">
-                                       <input type="hidden" name="rowid[]" value="<?php echo $item['rowid'] ?>"></td>
-                  <td class="unit">Rp. <?php echo number_format($item['price']).' ,-' ?></td>
-
-                  <td class="action">
-                    <a href="<?php echo base_url().'index/removefromcart/'.$item['rowid']; ?>" class="text-danger diki-tooltip" data-toggle="tooltip" data-placement="top" data-original-title="Hapus Belanja"><i class="fa fa-trash-o"></i></a>
-                  </td>
-                </tr>
-                    <?php } ?>
-                <tr>
-                  <td colspan="4" class="text-right">Total Belanja</td>
-                  <td colspan="2"><b><?php echo "Rp.". number_format($this->cart->total()).',-' ?></b></td>
-                </tr>
-              </tbody>
-            </table>
-             <input type="submit" value="Update Keranjang" class="btn btn-sm btn-primary">
-             </form>
-          </div>
-          <?php } else{ ?>
-            <br/>
-            <br/>
-            <p class="text-center">Keranjang Belanja Anda masih kosong. Ayo <a href="<?php echo base_url().'index/shop'; ?>">Belanja Ikan Favorit Anda</a>.</p>
-            <?php } ?>
-
-          <nav aria-label="Shopping Cart Next Navigation">
-            <ul class="pager">
-              <li class="previous"><a href="<?php echo base_url().'index' ?>"><span aria-hidden="true">&larr;</span> Lanjut Belanja</a></li>
-              <?php if(count($this->cart->contents())>0){ ?>
-              <li class="next"><a href="<?php echo base_url().'index/pembayaran' ?>">Langsung Bayar <span aria-hidden="true">&rarr;</span></a></li>
-              <?php } ?>
-            </ul>
-          </nav>
-        </div>
-        <!-- End Shopping Cart List -->
-
-        <!-- New Arrivals -->
-        <div class="col-md-3 hidden-sm hidden-xs">
-          <div class="title"><span><a href="products.html">Komoditas Favorit <i class="fa fa-chevron-circle-right"></i></a></span></div>
-          <div class="widget-slider owl-carousel owl-theme owl-controls-top-offset">
-
-            <div class="box-product-outer">
-              <div class="box-product">
-                <div class="img-wrapper">
-                  <a href="">
-                    <img alt="Product" src="images/demo/p1-1.jpg">
-                  </a>
-                  <div class="tags tags-left">
-                    <span class="label-tags"><a href="products.html"><span class="label label-success arrowed-right">New Arrivals</span></a></span>
-                  </div>
-                  <div class="option">
-                    <a href="#" data-toggle="tooltip" title="Add to Cart"><i class="fa fa-shopping-cart"></i></a>
-                    <a href="#" data-toggle="tooltip" title="Add to Compare"><i class="fa fa-align-left"></i></a>
-                    <a href="#" data-toggle="tooltip" title="Add to Wishlist" class="wishlist"><i class="fa fa-heart"></i></a>
-                  </div>
+                        echo  "<img alt='Product' src='".base_url().'dah_image/products/'.$item['options']['gambar']."'>";
+                        }else{
+                        echo  "<img alt='Product' src='".base_url()."dah_image/default/no_product.jpg'>";
+                        }
+                    ?>
+                    </div>    
                 </div>
-                <h6><a href="detail.html">WranglerGrey Printed Slim Fit Round Neck T-Shirt</a></h6>
-                <div class="price">
-                  <div>$15.00</div>
+
+                <div class="col-lg-10 col-md-9 col-sm-9 col-7">
+                    <div class="row" style="margin-left:-30px!important">
+
+                        <div class="col-lg-4 col-md-12 col-sm-12">
+                          
+                            <div class="tp-checkout">
+                            <p><a href="<?php echo base_url().'produk/'.$item['id'].'-'.create_slug($item['name']) ?>" class="d-block"><?php echo $item['name'] ?></a></p>
+                            </div>
+                        </div>
+                    
+                            
+                            <div class="col-lg-2 col-md-12 col-sm-12 seperator">
+                               <b>Rp. <?php echo number_format($item['price']).' ,-' ?></b> 
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 seperator">
+                                  <input class="input-spinner" type="number" min="1" name="jumlah_produk[]" value="<?php echo $item['qty'] ?>" max="90"/>
+                                  <input type="hidden" name="rowid[]" value="<?php echo $item['rowid'] ?>">
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 d-none d-lg-block d-xl-block seperator">
+                                    <b class="red-text text-darker-2 d-flex justify-content-center">Rp. <?php echo number_format($item['price']).' ,-' ?></b> 
+                                   
+                            </div>
+                            <div class="col-lg-2 col-md-12 col-sm-12 d-none d-lg-block d-xl-block seperator">
+                              <a href="<?php echo base_url().'index/removefromcart/'.$item['rowid']; ?>" class="d-flex justify-content-center diki-tooltip" data-toggle="tooltip" data-placement="top" data-original-title="Hapus Belanja">Hapus</a>  
+                            </div>
+
+                      
+                    </div>
                 </div>
-              </div>
             </div>
-
-          </div>
         </div>
-        <!-- End New Arrivals -->
+        <?php } ?>
+        <!-- sticky checkout -->
+        <div class="sticky-checkout">
+          <div class="row">
+            <div class="col-lg-9 col-md-7 col-sm-6">
+                <div class="float-lg-right" style="margin-bottom: 10px;">
+                    Subtotal :  <span class="blue-text text-accent-4">
+                    <?php echo "Rp.". number_format($this->cart->total()).',-' ?>
+                      </span>                
+                    </div>
+            </div>
+            <div class="col-lg-3 col-md-5 col-sm-6">
+              <a href="<?php echo base_url().'index/pembayaran' ?>" class="btn btn-check-out green darken-2 white-text">Bayar</a>
 
-      </div>
+            </div>
+          </div>
+          
+        </div>
+        <!-- end sticky checkout -->
+        </form>
+        <?php } else{ ?>
+          <p class="text-center">Keranjang belanja anda masih kosong. Ayo <a href="<?php echo base_url().'index/shop'; ?>">Belanja Produk Favorit Anda</a>.</p>
+        <?php } ?>  
+
+        <!-- product suggest -->
+        <div class="product-suggest">
+            <div class="product-s-title"  style="background: #fff;">
+                <h1>Product Rekomendasi</h1>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                  <div class="product-suggest-form">
+                      <!-- gambarproduct -->
+                      <div class="product-suggest-img">
+
+                      </div>
+                      <!-- end gambar product -->
+
+                      <!-- product -suggest title -->
+                      <div class="product-suggest-title">
+                          tes
+                      </div>
+                      <!-- end produt-suggest -->
+
+                      <!-- pdouct suggest sell -->
+                          <div class="product-suggest-sell">
+
+                          </div>
+                      <!-- end product suggest sell -->
+                  </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="product-suggest-form">
+
+                      </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="product-suggest-form">
+                          
+                          </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-6">
+                      <div class="product-suggest-form">
+                          
+                      </div>
+                </div>
+            </div>
+        </div>
+  <!-- end product suggest -->
     </div>
-    <!-- End Main Content -->
+</section>
+<!-- end checkout -->

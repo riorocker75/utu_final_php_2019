@@ -3,8 +3,10 @@
     <div class="breadcrumbs-container">
         <div class="breadcrumbs-line">
             <ul>
-                <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
-                <li><a href="">tes 1</a> </li>
+                <li><a href="<?php echo base_url()?>">Home</a> </li>
+               <li><a href="">Detail Produk</a></li>
+
+               
             </ul>
         </div>
     </div>
@@ -233,7 +235,7 @@
              </div>    
              
              <div class="col-lg-12 col-md-12 col-sm-12 col-10">
-             <a class="btn-u-md-fullwidth btn-primary white-text" style="cursor:pointer">Beli Sekarang</a>
+             <a href="<?php echo base_url().'index/keranjang' ?>" class="btn-u-md-fullwidth btn-primary white-text" style="cursor:pointer">Beli Sekarang</a>
 
              </div>
                                           

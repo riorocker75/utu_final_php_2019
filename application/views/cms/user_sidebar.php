@@ -13,7 +13,7 @@
 			<a href="<?php echo base_url().'user'; ?>"><i class="fa fa-user-alt green-text text-accent-4"></i> Profile saya</a>	
 			</li>
 			<li>
-				<a href="<?php echo base_url().'user/invoice'; ?>"><i class="fa fa-credit-card blue-text text-accent-2"></i>Invoice Pembelian </a>
+				<a href="<?php echo base_url().'user/invoice'; ?>"><i class="fa fa-credit-card blue-text text-accent-2"></i>Transaksi pembelian </a>
 			</li>
 			<li>
 				<a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt red-text text-accent-2"></i> Log out </a>	
