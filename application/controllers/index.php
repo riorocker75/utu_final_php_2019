@@ -235,6 +235,17 @@ class Index extends CI_Controller {
 		redirect(base_url().'index/keranjang/?alert=remove-cart');
 	}
 
+	function removefromnotifcart($rowid){
+		$data = array(
+			'rowid' => $rowid,
+			'qty' => 0
+			);
+		$this->cart->product_name_rules = '[:print:]';
+		$this->cart->update($data);
+		redirect($_SERVER['HTTP_REFERER']);
+	}
+
+
 	function keranjang(){
 		$this->load->database();
 		$this->load->view('cms/header');
@@ -352,6 +363,48 @@ class Index extends CI_Controller {
 		}
 	}
 
+	function user_login_static(){
+		$this->load->database();
+		if($this->session->userdata('user_status')!='login'){
+			$email = $this->input->post('email');
+			$password = $this->input->post('password');
+
+			$this->form_validation->set_rules(
+				'email', 'Email',
+				'trim|required|valid_email'
+				);
+			$this->form_validation->set_rules('password', 'Password', 'trim|required|min_length[6]');
+			if($this->form_validation->run()==true){
+				$data = array(
+					'email'=>$email,
+					'password'=>md5($password),
+					'status'=>1
+					);
+				$cek = $this->m_dah->edit_data($data,'user');
+				if($cek->num_rows() > 0){
+					$u_data = $cek->row();
+					$session = array(
+						'user_id' => $u_data->id,
+						'user_nama' => $u_data->nama,
+						'user_email' => $u_data->email,
+						'user_status' => 'login'
+						);
+					$this->session->set_userdata($session);
+					redirect($_SERVER['HTTP_REFERER']);
+				}else{
+					redirect(base_url().'index/userlogin/?alert=login-gagal');
+				}
+
+			}else{
+				$this->load->view('cms/header');
+				$this->load->view('cms/login');
+				$this->load->view('cms/footer');
+			}
+		}else{
+			redirect(base_url());
+		}
+	}
+
 	function update_cart(){
 		$rowid = $this->input->post('rowid');
 		$jumlah_produk = $this->input->post('jumlah_produk');
@@ -441,6 +494,7 @@ class Index extends CI_Controller {
 		$pembayaran = $this->input->post('pembayaran');
 		$ongkir = $this->input->post('ongkir');
 		$kurir = $this->input->post('kurir');
+		$rek_bank = $this->input->post('rek_bank');
 
 		$pengiriman_dari = 23;
 
@@ -476,6 +530,7 @@ class Index extends CI_Controller {
 				'kurir' => $kurir,
 				'ongkir' => $ongkir,
 				'pembayaran' => $pembayaran,
+				'rek_bank' => $rek_bank,
 				'status' => 0
 				);
 			$this->m_dah->insert_data($inv,'invoice');

@@ -311,23 +311,24 @@ body {
 .cart-view {
 	height: 30px;
 	margin-bottom: -20px;
-
+	position: relative;
+	cursor: pointer;
 	span {
 		display: inline-block !important;
 		position: relative;
-		top: -12px;
-		left: -3px;
+		top: -14px;
+		left: -10px;
 		background-color: #fa3e3e;
-		border-radius: 2px;
+		border-radius: 50%;
 		font-size: 10px;
-		padding: 0px 3px 2px 3px;
-		color: #fff;
+		padding: 0px 7px 3px 6px;
+		color: #ffffff;
 	}
 }
 .ket-cart {
 	position: absolute;
-	top: 45px;
-	right: 90px;
+	top: 30px;
+	right: 0;
 	width: 320px;
 	background: #fff;
 	color: #000;
@@ -338,14 +339,14 @@ body {
 	display: none;
 
 	@media (min-width: 200px) and (max-width: 576px) {
-		right: 15px;
+		right: -30px;
 	}
 }
 
 .identity-cart {
 	color: #fff;
 	position: absolute;
-	top: -16px;
+	top: -15px;
 
 	right: 10px;
 	font-size: 16px;
@@ -360,6 +361,30 @@ body {
 
 .ket-cart-body {
 	padding: 15px 10px;
+}
+.ket-cart-close{
+	padding: 3px 3px 3px 2px;
+	width:16px;
+	height: 16px;
+	position: relative;
+	top:-3px;
+	border-radius: 50%;
+	box-shadow: $box-shadow-2dp;
+	background: #fafafa;
+	cursor: pointer;
+	
+	i{
+		position: relative;
+		top: -9px;
+		font-size: 12px!important;
+		left:2px;
+		color:#d50000;
+	}
+	
+}
+.ket-cart-close:hover{
+	background: red;
+	i{color:#fff!important;}
 }
 .ket-cb-img {
 	display: -ms-flexbox;

@@ -11308,3 +11308,58 @@ a.text-dark:hover, a.text-dark:focus {
 	padding: 0px 30px;
 }
 /* end text custom */
+
+/* labil */
+.labil {
+  display: inline-block;
+  font-weight: 700;
+  padding: 2px 5px 1px 5px;
+  line-height: 1.5384616;
+  border: 1px solid transparent;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 0.1px;
+  border-radius: 2px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.labil-primary {
+  background: #1976d2;
+  color: #fff;
+}
+
+.labil-success {
+  background: #43a047;
+  color: #fff;
+}
+
+.labil-warning {
+  background: #ff9800;
+  color: #fff;
+}
+
+.labil-danger {
+  background: #e53935;
+  color: #fff;
+}
+
+.labil-default {
+  background: #424242;
+  color: #fff;
+}
+
+.labil-order {
+  background: #6a1b9a;
+  color: #fff;
+}
+
+.labil-sold {
+  background: #c62828;
+  color: #fff;
+}
+
+/* end labil */

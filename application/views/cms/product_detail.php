@@ -235,7 +235,7 @@
              </div>    
              
              <div class="col-lg-12 col-md-12 col-sm-12 col-10">
-             <a href="<?php echo base_url().'index/keranjang' ?>" class="btn-u-md-fullwidth btn-primary white-text" style="cursor:pointer">Beli Sekarang</a>
+             <a id="<?php echo $p->prod_id; ?>" class="btn-u-md-fullwidth btn-primary white-text btn-bayarlangsung" style="cursor:pointer">Beli Sekarang</a>
 
              </div>
                                           

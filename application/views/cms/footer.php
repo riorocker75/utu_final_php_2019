@@ -187,7 +187,21 @@
 						});
 					});
 
-
+					$('body').on("click",".btn-bayarlangsung",function(){
+						var id = $(this).attr('id');
+						var data = "id="+id;
+						$.ajax({
+							type: 'POST',
+							url: "<?php echo base_url(); ?>" + "index/addtocart",
+							data: data,
+							success: function(){
+								window.location.replace("<?php echo base_url().'index/pembayaran'?>");
+							},
+							error: function() {
+								alert("Gagal menuju laman pembayaran mohon diulangi lagi !");
+							}
+						});
+					});		
 
 
 

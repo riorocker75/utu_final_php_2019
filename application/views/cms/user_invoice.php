@@ -65,15 +65,15 @@
 										<td>
 											<?php
 											if($p->status == 0){
-												echo "<span class='label label-warning'>Menunggu pembayaran</span>";
+												echo "<span class='labil labil-warning'>Menunggu pembayaran</span>";
 											}else if($p->status == 1){
-												echo "<span class='label label-default'>Menunggu konfirmasi</span>";
+												echo "<span class='labil labil-default'>Menunggu konfirmasi</span>";
 											}else if($p->status == 2){
-												echo "<span class='label label-danger'>Di tolak</span>";
+												echo "<span class='labil labil-danger'>Di tolak</span>";
 											}else if($p->status == 3){
-												echo "<span class='label label-primary'>Di proses</span>";
+												echo "<span class='labil labil-primary'>Di proses</span>";
 											}else if($p->status == 4){
-												echo "<span class='label label-success'>Di bayar</span>";
+												echo "<span class='labil labil-success'>Di bayar</span>";
 											}
 											?>
 										</td>

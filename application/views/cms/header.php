@@ -77,6 +77,8 @@
                           </div>
                           <?php if(count($this->cart->contents())>0){ ?>
                               <div class="ket-cart-body">
+                              
+                            
                                  <?php foreach($this->cart->contents() as $item){ ?>
                                   <div class="ket-cb-img">
                                     <!-- start gambar produk -->
@@ -94,9 +96,12 @@
                                       <p class="tx-12 blue-text text-accent-3 tx-bold-600">Rp. <?php echo number_format($item['price']).' ,-' ?></p>
                                     </div>
 
+                                    <div class="ket-cart-close">
+                                       <a href="<?php echo base_url().'index/removefromnotifcart/'.$item['rowid']; ?>" class=" diki-tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Belanja"> <i class="fa fa-times"></i></a>
+                                   </div>        
                                   </div> 
                                  <?php }?>
-                                  
+                               
                                  <div class="ket-cart-total">
                                     <p class="float-right">Total :&nbsp;&nbsp; 
                                       <b class="blue-text text-accent-3"> <?php echo "Rp.". number_format($this->cart->total()).',-' ?></b>
@@ -118,11 +123,13 @@
                               <!-- end cart-footer -->
                           <?php }else{?>
                             <div class="ket-cart-body">
-                              <p style="color:#c1c23;font-size:13px;text-align:center;">Keranjang masih kosong</p>  
+                              <img src="<?php echo base_url()?>dah_image/system/boxkosong.png" width="80px" style="position:relative;left:100px;right:0">
+                               <p style="color:#000;font-size:13px;text-align:center;opacity:0.6">Keranjang masih kosong</p>  
+                            
                             </div>
 
                             <div class="ket-cart-footer">
-                             <a href=""> Belanja dulu ya </a>
+                             <a href="<?php echo base_url().'index/shop'; ?>"> Belanja dulu ya </a>
                             </div>
                           <?php }?> 
                           
@@ -132,14 +139,39 @@
                         
                     </div>
                     <?php }else{ ?>
-                        <a href=""> <i class="fa fa-cart-plus" aria-hidden="true"></i></a>
+                      <div class="cart-view">
+                        <p> 
+                          <a><i class="fa fa-cart-arrow-down"></i></a>
+                      
+                        </p>
+
+                        <div class="ket-cart">
+                          <div class="identity-cart">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                         
+                          <div class="ket-cart-title">
+                              Keranjang Belanja <b class="float-right tx-bold-500 tx-14">(<?php echo count($this->cart->contents()); ?>)</b>
+                          </div>
+                        
+                            
+                            <div class="ket-cart-body">
+                                <img src="<?php echo base_url()?>dah_image/system/boxkosong.png" width="80px" style="position:relative;left:100px;right:0">
+                              <p style="color:#000;font-size:13px;text-align:center;opacity:0.6">Keranjang masih kosong</p>  
+                            </div>
+
+                            <div class="ket-cart-footer">
+                             <a href="<?php echo base_url().'index/shop'; ?>"> Belanja dulu ya </a>
+                            </div>
+                        </div>
+                    </div>
                     <?php } ?>
                    <!-- end cart aksi    -->
                  
                 </li>  
                 <?php if($this->session->userdata('user_status') != "login"){?>
                 <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-7px;">
-                  <a href="" class="btn-bordered-sm ">Daftar</a>
+                  <a href="<?php echo base_url().'index/user_daftar'?>" class="btn-bordered-sm ">Daftar</a>
                   <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm">Login</a>
                 </li>  
               
@@ -199,6 +231,7 @@
                           </div>
                           <?php if(count($this->cart->contents())>0){ ?>
                               <div class="ket-cart-body">
+                               
                                  <?php foreach($this->cart->contents() as $item){ ?>
                                   <div class="ket-cb-img">
                                     <!-- start gambar produk -->
@@ -216,6 +249,10 @@
                                       <p class="tx-12 blue-text text-accent-3 tx-bold-600">Rp. <?php echo number_format($item['price']).' ,-' ?></p>
                                     </div>
 
+                                    <!-- inidia2 -->
+                                        <div class="ket-cart-close">
+                                          <a href="<?php echo base_url().'index/removefromnotifcart/'.$item['rowid']; ?>" class=" diki-tooltip" data-toggle="tooltip" data-placement="top" title="Hapus Belanja"> <i class="fa fa-times"></i></a>
+                                      </div>  
                                   </div> 
                                  <?php }?>
                                   
@@ -239,13 +276,7 @@
                                 </div>            
                               <!-- end cart-footer -->
                           <?php }else{?>
-                            <div class="ket-cart-body">
-                              <p style="color:#c1c23;font-size:13px;text-align:center;">Keranjang masih kosong</p>  
-                            </div>
-
-                            <div class="ket-cart-footer">
-                             <a href=""> Belanja dulu ya </a>
-                            </div>
+                            
                           <?php }?> 
                           
                          
@@ -254,7 +285,33 @@
                         
                     </div>
                     <?php }else{ ?>
-                        <a href=""> <i class="fa fa-cart-plus white-text" aria-hidden="true"></i></a>
+                      <!-- ini dia -->
+                      <div class="cart-view">
+                        <p> 
+                          <a><i class="fa fa-cart-arrow-down white-text"></i></a>
+                      
+                        </p>
+
+                        <div class="ket-cart">
+                          <div class="identity-cart">
+                            <i class="fa fa-caret-up" aria-hidden="true"></i>
+                          </div>
+                         
+                          <div class="ket-cart-title">
+                              Keranjang Belanja <b class="float-right tx-bold-500 tx-14">(<?php echo count($this->cart->contents()); ?>)</b>
+                          </div>
+                        
+                            
+                            <div class="ket-cart-body">
+                                <img src="<?php echo base_url()?>dah_image/system/boxkosong.png" width="80px" style="position:relative;left:100px;right:0">
+                              <p style="color:#000;font-size:13px;text-align:center;opacity:0.6">Keranjang masih kosong</p>  
+                            </div>
+
+                            <div class="ket-cart-footer">
+                             <a href="<?php echo base_url().'index/shop'; ?>"> Belanja dulu ya </a>
+                            </div>
+                        </div>
+                    </div>
                     <?php } ?>
                    <!-- end cart aksi    -->   
           </li>
