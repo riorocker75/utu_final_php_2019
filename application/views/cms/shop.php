@@ -20,9 +20,9 @@
 	?>
 <section class="product-gird">
     <div class="container">
-        <div class="row">
+        <div class="row" >
             <!-- sidebar product-gird -->
-            <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="col-lg-3 col-md-5 col-sm-12 col-12">
                 <div class="product-sidebar-form">
                     <div class="product-sf-title">
                        <h2>Category</h2> 
@@ -36,10 +36,10 @@
             <!-- end sidebar -->
 
 			<!-- product-main-gird -->
-            <div class="col-lg-9 col-md-6 col-sm-12 col-12">
+            <div class="col-lg-9 col-md-7 col-sm-12 col-12">
 				<div class="row">
 					<?php foreach($products as $p){?>
-                    <div class="col-lg-3 col-md-12 col-sm-12 col-12">
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6">
                         <div class="product-main-gird">
 
                             <div class="product-mg-img">

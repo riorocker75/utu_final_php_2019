@@ -1,6 +1,6 @@
 <!-- breadrumb section -->
 <section class="breadcrumbs">
-    <div class="breadcrumbs-container">
+    <div class="container">
         <div class="breadcrumbs-line">
             <ul>
                 <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
@@ -30,12 +30,8 @@
                          <h2> Data Profil Saya</h2>
 
                         <a href="<?php echo base_url().'user/edit_profil'; ?>" class="btn btn-bordered bor-danger  float-right" style="margin-top:-40px;">Ubah Profil &nbsp;<i class="fa fa-wrench" ></i></a>
-
-                        </p>
-                       
-
-                   
-                         
+                        </p>    
+                    
                         </div>
 
                       <div class="user-sb-main-body">

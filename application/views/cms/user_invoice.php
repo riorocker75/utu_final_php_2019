@@ -1,6 +1,6 @@
 <!-- breadrumb section -->
 <section class="breadcrumbs">
-    <div class="breadcrumbs-container">
+    <div class="container">
         <div class="breadcrumbs-line">
             <ul>
                 <li><a href="<?php echo base_url()?>">Laman Depan</a> </li>
@@ -16,7 +16,7 @@
 <section class="user-profile">
 
   <div class="row">
-      <div class="col-lg-10 offset-lg-1 col-sm-10 offset-sm-1 col-12">
+      <div class="col-lg-10 offset-lg-1 col-sm-10 offset-sm-1 col-10 offset-1">
           <div class="row">
               <div class="col-lg-3 col-md-3 col-sm-12 col-12">
                 <?php include"user_sidebar.php";?>

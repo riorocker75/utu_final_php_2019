@@ -36,7 +36,7 @@
 
 <!-- nsearchnav -->
 <div class="search-nav sticky-top teal darken-1">
-        <div class="header-container">
+        <div class="container">
      <div class="row">
        <div class="col-sm-3 col-md-3 col-lg-3 d-none d-sm-block">
       
@@ -180,17 +180,25 @@
                 </li>
 
               <?php }else{?>
-              <li class="has_dropdown_side ">
+              <li class="has_dropdown_side">
                     <a href="#" class="">
                     <i class="fa fa-user white-text" aria-hidden="true"></i></a>
-                  <ul class="dropdown_ct_side">
-                    
-                        <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-home tx-16"></i> Dashboard</a></li>
-                        <li><a href=""><i class="fa fa-user tx-16"></i> Profile</a></a></li>
-                        <li><a href=""><i class="fa fa-briefcase tx-16"></i> Pesanan</a></a></li>
-                        <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16"></i> Logout</a></a></li>
-
-                  </ul>
+                  <div class="dropdown_ct_side">
+                    <div class="identity-cart">
+                      <i class="fa fa-caret-up" aria-hidden="true"></i>
+                    </div>
+                      <div class="dropdown-ct-title">
+                        Hai,<p style="margin-bottom:0;opacity:0.7;font-weight:700"> <?php echo $this->session->userdata('user_nama'); ?></p>
+                      </div>
+                     
+                      <div class="dropdown-ct-body">
+                        <ul>
+                            <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-user tx-16 green-text text-accent-4"></i>Profile</a></a></li>
+                            <li><a href="<?php echo base_url().'user/invoice' ?>"><i class="fas fa-credit-card tx-16 blue-text text-accent-2"></i>Transaksi</a></a></li>
+                            <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16 red-text text-accent-2"></i>Logout</a></a></li>
+                          </ul>
+                      </div>
+                  </div>
                 </li>
               <?php }?>
               
@@ -320,18 +328,26 @@
               <a href="" class="white-text tx-16" data-toggle="modal" data-target="#login-pembeli" title="Masuk ke akun"> <i class="fas fa-sign-in-alt"></i></a>
             </li>
           <?php }else{ ?>
-            <li class="has_dropdown_side ">
-            <a href="#" class="">
-             <i class="fa fa-user white-text"></i></a>
-          <ul class="dropdown_ct_side">
-            
-                <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-home tx-16"></i> Dashboard</a></li>
-                <li><a href=""><i class="fa fa-user tx-16"></i> Profile</a></a></li>
-                <li><a href=""><i class="fa fa-briefcase tx-16"></i> Pesanan</a></a></li>
-                <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16"></i> Logout</a></a></li>
-
-          </ul>
-        </li>
+            <li class="has_dropdown_side">
+                    <a href="#" class="">
+                    <i class="fa fa-user white-text" aria-hidden="true"></i></a>
+                  <div class="dropdown_ct_side">
+                    <div class="identity-cart" style="right:15px!important">
+                      <i class="fa fa-caret-up"></i>
+                    </div>
+                      <div class="dropdown-ct-title">
+                        Hai,<p style="margin-bottom:0;opacity:0.7;font-weight:700"> <?php echo $this->session->userdata('user_nama'); ?></p>
+                      </div>
+                     
+                      <div class="dropdown-ct-body">
+                        <ul>
+                            <li><a href="<?php echo base_url().'user'?>"><i class="fa fa-user tx-16 green-text text-accent-4"></i>Profile</a></a></li>
+                            <li><a href="<?php echo base_url().'user/invoice'; ?>"><i class="fas fa-credit-card tx-16 blue-text text-accent-2"></i>Transaksi</a></a></li>
+                            <li><a href="<?php echo base_url().'user/user_logout'?>"><i class="fas fa-sign-out-alt tx-16 red-text text-accent-2"></i>Logout</a></a></li>
+                          </ul>
+                      </div>
+                  </div>
+                </li>
           <?php }?>  
 
          
@@ -340,26 +356,25 @@
   
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto ">
-          <li class="nav-item active">
-            <a class="nav-link white-text" href="#">Home <span class="sr-only"></span></a>
-          </li>
+        <div class="container">
+            <ul class="navbar-nav mr-auto ">
+              <li class="nav-item active">
+                <a class="nav-link white-text" href="#">Home <span class="sr-only"></span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link white-text" href="#">Tentang</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link white-text" href="#">Kontak</a>
+              </li>
           <li class="nav-item">
-            <a class="nav-link white-text" href="#">Tentang</a>
-          </li>
+                <a class="nav-link white-text" href="#">Cara Pemesanan</a>
+              </li>
           <li class="nav-item">
-            <a class="nav-link white-text" href="#">Kontak</a>
-          </li>
-		  <li class="nav-item">
-            <a class="nav-link white-text" href="#">Cara Pemesanan</a>
-          </li>
-		  <li class="nav-item">
-            <a class="nav-link white-text" href="#">Metode Pembayaran</a>
-          </li>
-         
-         
-        </ul>
-       
+                <a class="nav-link white-text" href="#">Metode Pembayaran</a>
+              </li>
+            </ul>
+        </div>
         
       </div>
      

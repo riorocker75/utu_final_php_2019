@@ -328,7 +328,7 @@ body {
 .ket-cart {
 	position: absolute;
 	top: 30px;
-	right: 0;
+	right: -5px;
 	width: 320px;
 	background: #fff;
 	color: #000;
@@ -350,6 +350,10 @@ body {
 
 	right: 10px;
 	font-size: 16px;
+	@media(max-width:576px){
+		right: 32px;
+		top: -12px;
+	}
 }
 .ket-cart-title {
 	border-bottom: 1px solid #e6edf5;

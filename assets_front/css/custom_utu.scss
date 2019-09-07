@@ -91,38 +91,56 @@
 
 .has_dropdown_side {
   position: relative;
-  display: inline-block;
+  display: block;
 }
 
 .dropdown_ct_side {
   display: none;
   position: absolute;
   background: #fff !important;
-  width: 180px;
+  width: 220px;
   z-index: 1;
+  top:30px;
   color: black;
-  right: 0px;
+  right: -5px;
   border-radius: 4px;
   box-shadow: $box-shadow-card;
+
+  ul li a{ display: block; padding:0!important;}
+}
+.dropdown_ct_side li:hover{
+    background: #fafafa;
+    a{color:#f50057}
 }
 
-.dropdown_ct_side a {
-  color: rgba(0, 0, 0, 0.54) !important;
-  fill: rgba(0, 0, 0, 0.54) !important;
-  padding: 0px 10px;
+.dropdown-ct-title{
+  padding:15px 15px;
+  border-bottom: 1px solid #c1c2c3;
+  font-size: 14px;
+}
+.dropdown-ct-body{
+  min-width:100%; 
+  display: block;
+  ul li a{ display: block; padding:0!important;}
+  li {
+    display: block;
 
-  letter-spacing: 0.05em !important;
-  line-height: 2.2;
-  font-size: 16px;
-  margin-left: -40px;
-  text-decoration: underline transparent;
+    padding:10px 10px;
+    margin-left: -30px;
+    display: block!important;
+  }
+  i{width:25px!important;}
+  a{color:#000;font-size: 14px;}
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: content-box !important;
+    -moz-box-sizing: content-box !important;
+    box-sizing: content-box !important;
+  }
+
 }
 
-.dropdown_ct_side li:hover {
-  width: 100%;
-  color: #000 !important;
-  background-color: #f8f9fa !important;
-}
 
 .has_dropdown_side:hover .dropdown_ct_side {
   display: block;
@@ -202,11 +220,12 @@ a.prod-price{
 // breadcrumb-custom
 
 .breadcrumbs {
-  height: 50px;
-  padding: 15px 10px;
+  height: auto;
+  padding: 20px 0px 5px 0px;
   background: #fafafa;
   box-shadow: $box-shadow-card;
   opacity: 0.7;
+ 
 }
 .breadcrumbs-container {
   padding: 0px 5px;
@@ -222,10 +241,11 @@ a.prod-price{
 .breadcrumbs-line {
   position: relative;
   color: #666666;
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1;
   letter-spacing: 0.5px;
   text-decoration: none;
+  margin-left:-30px;
 }
 
 .breadcrumbs-line ul li {
@@ -241,13 +261,13 @@ a.prod-price{
   display: inline-block;
   color: #666666;
   line-height: 12px;
-  font-size: 14px;
+  font-size: 12px;
   font-weight: 800;
   -webkit-font-smoothing: antialiased;
 }
 
 .breadcrumbs-line ul li a {
-  font-size: 14px;
+  font-size: 12px;
   color: #666666;
   text-decoration: underline transparent;
   font-weight: 600;
@@ -383,7 +403,7 @@ font-size: 16px;
   margin-top: 10px;
   font-size: 18px;
   font-weight: 50;
-  box-shadow: $box-shadow;
+
 
   a {
     color: #000;
@@ -404,15 +424,16 @@ font-size: 16px;
 // product-suggest
 .product-suggest {
   margin-top: 40px;
+  background: #fff;
+  padding:0 10px 0 10px;
 }
 .product-s-title {
-  padding: 10px;
+  padding: 15px 5px;
 
   margin-bottom: 10px;
-  box-shadow: $box-shadow-card;
 
   h1 {
-    font-size: 22px;
+    font-size: 18px;
     font-weight: 600;
     line-height: 1;
   }
@@ -420,30 +441,33 @@ font-size: 16px;
 .product-suggest-form {
   max-width: 100%;
   height: 320px;
-  background: blue;
+  background: #fff;
   border-radius: 4px;
-  box-shadow: $box-shadow-card;
   margin-bottom: 15px;
+ 
+  
 }
 .product-suggest-img {
   max-width: 100%;
   height: 180px;
-  background: red;
+  background: #fff;
   border-radius: 4px;
+  border: 1px solid #eeeeee;
   img {
     max-width: 100%;
+    height: 180px;
   }
 }
 
 .product-suggest-title {
   margin: 10px;
-  background: green;
   max-width: 100%;
   height: 50px;
+  font-size: 12px;
+  a{color:#000;opacity:0.7}
 }
 .product-suggest-sell {
   margin: 10px;
-  background: yellow;
   max-width: 100%;
   height: 60px;
 }
