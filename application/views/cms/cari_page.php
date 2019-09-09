@@ -4,7 +4,8 @@
         <div class="breadcrumbs-line">
             <ul>
                 <li><a href="<?php echo base_url()?>">Home</a> </li>
-                <li><a href="">Semua Produk</a> </li>
+                <li><a href="">Cari Produk</a> </li>
+                <li><a href=""><?php echo  $this->session->userdata('search');?></a></li>
             </ul>
         </div>
     </div>
@@ -149,7 +150,9 @@
 </section>
 
 	<?php }else{?>
-		Product Belum ada di post
+	    <div class="container">
+            Maaf Produk yang kamu cari belum tersedia
+        </div>
 	<?php }?>
 
 <!-- end product-gird -->

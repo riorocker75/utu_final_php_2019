@@ -2,10 +2,26 @@
   <!-- product index   -->
   <br>	
 <div class="container">
-<?php
-					if(count($products) > 0){
-				
-?>
+
+<!-- carousel gambar -->
+<section class="variable slider">
+    <div>
+      <img src="<?php echo base_url()?>dah_image/tester_img/tester.png">
+    </div>
+    <div>
+      <img src="<?php echo base_url()?>dah_image/tester_img/tester2.png">
+     
+    </div>
+    <div>
+      <img src="<?php echo base_url()?>dah_image/tester_img/tester3.png">
+    </div>
+    
+  </section>
+
+
+<!-- end carousel gambar -->
+
+<?php	if(count($products) > 0){?>
     <div class="row">
     <?php 	foreach($products as $p){?>
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">

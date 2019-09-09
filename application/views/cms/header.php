@@ -7,20 +7,18 @@
 	<meta name="description" content="">
 	<meta name="author" content="">
 	<title><?php echo $this->m_dah->get_option('blog_name'); ?> | <?php echo strip_tags($this->m_dah->get_option('blog_description')); ?></title>
-	<link rel="icon" type="image/png" href="<?php echo base_url().'dah_image/system/logo1.png' ?>">
+	<link rel="icon" type="image/png" href="<?php echo base_url().'dah_image/system/logoutu1.png' ?>">
 	<!-- Global stylesheets -->
   <!-- core CSS -->
   	<link rel="stylesheet" href="<?php echo base_url() ?>assets_front/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/core_utu.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/custom_utu.css">
-
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/slick.css">
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/slick-theme.css">
 
     <!-- font -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/font-aw/css/all.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/material-icon/material-icon.css">
-
-
-
 
 	<!-- Core JS files -->
 
@@ -39,14 +37,22 @@
         <div class="container">
      <div class="row">
        <div class="col-sm-3 col-md-3 col-lg-3 d-none d-sm-block">
-      
-           Logo
+      <a href="<?php echo base_url()?>">
+      <img src="<?php echo base_url()?>dah_image/system/logoutu1.png" style="width:48px;height:48px;">
+
+      </a>
  
         </div>
        <div class="col-12 col-sm-4 col-md-4 col-lg-4 ">
-         <form action="" method="post" class="search-area ">
-           <input type="text" class="search-in-area" placeholder="Cari yang kamu inginkan">
+         <form action="<?php echo base_url().'search'?>" method="post" class="search-area " enctype="multipart/form-data">
+           <input type="text" class="search-in-area" placeholder="Cari yang kamu inginkan"  name="item">
           <i class="fa fa-search"></i>
+          <input
+                type="submit"
+                name="submit"
+                class="btn-bordered-icon btn-find "
+                value="Cari"
+             hidden />
          </form>
        </div>
        <div class="col-sm-5 col-md-5 col-lg-5 d-none d-sm-block ">
@@ -357,7 +363,7 @@
     
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <div class="container">
-            <ul class="navbar-nav mr-auto ">
+            <ul class="navbar-nav mr-auto tx-14">
               <li class="nav-item active">
                 <a class="nav-link white-text" href="#">Home <span class="sr-only"></span></a>
               </li>

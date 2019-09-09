@@ -29,10 +29,18 @@
           <div class="body-footer">
             <ul>
               <li>
-                <a href="">tes</a>
-
-              </li>
-            </ul>
+                <a href=""><i class="fas fa-envelope-open-text"></i> tes--support@gmail.com</a>
+			  </li>
+			  
+			  <li>
+                <a href=""><i class="fa fa-phone" aria-hidden="true"></i> 0852-8745-6390 </a>
+			  </li>
+			  <li>
+			  <div id="lokasi" style="max-width:100%; height:150px"></div>
+			  </li>
+			</ul>
+			
+			
           </div>
         </div>
 
@@ -43,8 +51,31 @@
   
             <div class="body-footer">
               <ul>
+			  <?php foreach($category_product as $k){ ?>
                 <li>
-                  <a href="">tes</a>
+				<a href="<?php echo base_url().'index/kategori_produk/'.$k->pcat_id;?>"><?php echo $k->pcat_name?></a>
+				</li>
+				<?php } ?> 
+              </ul>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+            <div class="tittle-footer">
+                <h2>Metode Pembayaran</h2>
+            </div>
+  
+            <div class="body-footer">
+              <ul>
+                <li>
+                  <a href="">Bank Mandiri</a>
+  
+				</li>
+				<li>
+                  <a href="">Bank BRI</a>
+  
+				</li>
+				<li>
+                  <a href="">Bank BNI</a>
   
                 </li>
               </ul>
@@ -52,28 +83,22 @@
         </div>
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="tittle-footer">
-                <h2>Kategory </h2>
+                <h2>Jasa Pengiriman </h2>
             </div>
   
             <div class="body-footer">
               <ul>
                 <li>
-                  <a href="">tes</a>
-  
-                </li>
-              </ul>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-            <div class="tittle-footer">
-                <h2>Kategory </h2>
-            </div>
-  
-            <div class="body-footer">
-              <ul>
-                <li>
-                  <a href="">tes</a>
-  
+                  <a href="">Pos Indonesia</a>
+				</li>
+				<li>
+                  <a href="">JNE</a>
+				</li>
+				<li>
+                  <a href="">TIKI</a>
+				</li>
+				<li>
+                  <a href="">JN&T</a>
                 </li>
               </ul>
             </div>
@@ -152,11 +177,26 @@
     
     <script src="<?php echo base_url()?>assets_front/js/core_utu.js"></script>
 	<script src="<?php echo base_url()?>assets_front/js/input-spinner.js" ></script>
+	<script src="<?php echo base_url()?>assets_front/js/slick.js" ></script>
+
 
     <script>
       $( function() {
         $( "#draggable" ).draggable();
-      } );
+	  } );
+	  
+
+	  $(".variable").slick({
+        dots: true,
+        infinite: true,
+		variableWidth: true,
+		infinite: true,
+		speed: 300,
+		slidesToShow: 1,
+		centerMode: true,
+		autoplay: true,
+  		autoplaySpeed: 5000,
+      });
       </script>
 
 <script type="text/javascript">
@@ -342,7 +382,29 @@
 	<script>
             $(".input-spinner").inputSpinner()
     </script>  
- 
-      
+	
+	<script>
+  
+
+
+      function initMap() {
+	  var map;
+	  var lok={lat: 5.2030553, lng: 97.0612123};
+        map = new google.maps.Map(document.getElementById('lokasi'), {
+          center: lok,
+          zoom: 14
+        });
+
+		var marker = new google.maps.Marker({
+          position: lok,
+          map: map,
+          title: 'Lokasi Kami'
+        });
+	
+      }
+    </script>	
+
+ 	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVbyFOcEs46t1t4srUIKVZIfZpSXsbiN8&callback=initMap" async defer></script>
+
   </body>
 </html>

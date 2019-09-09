@@ -154,5 +154,34 @@ class M_dah extends CI_Model{
 		return $this->db->query("select * from dah_products,dah_users where dah_users.user_id=dah_products.prod_author and prod_author='$id_author' ");
 	}
 
+	// pencarian strat
+	function search_product($product_status,$rowno,$rowperpage,$search=""){
+		$this->db->order_by('prod_id', 'desc');
+		if($search != ''){
+		$this->db->like('prod_name', $search);
+		// $this->db->or_like('content', $search);
+		}
+		$this->db->where(array('prod_status'=> $product_status));
+		return $this->db->get('dah_products',$rowperpage, $rowno);	
+	}
+
+	public function getrecordProduct($product_status,$search = '') {
+		$this->db->select('count(*) as allcount');
+		$this->db->from('dah_products');
+		
+		if($search != ''){
+			$this->db->like('prod_name', $search);
+			//$this->db->or_like('content', $search);
+		  }
+		  $this->db->where(array('prod_status'=> $product_status));
+  
+	  $query = $this->db->get();
+	  $result = $query->result_array();
+   
+	  return $result[0]['allcount'];
+	}
+
+	// end pencarian
+
 }
 ?>

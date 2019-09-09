@@ -55,6 +55,8 @@ $route['produk/(:num)-(:any)'] = "index/product_detail/$1/$2";
 // route page
 $route['page/(:num)-(:any)'] = "index/page/$1/$2";
 
+$route['shop']="index/shop";
+$route['search']="index/cari";
 
 
 

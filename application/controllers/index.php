@@ -42,6 +42,7 @@ class Index extends CI_Controller {
 		$this->load->database();
 		$this->load->library('pagination');
 		$posts = $this->m_dah->get_data_order('desc','prod_id','dah_products');
+		$data['kategori_product'] = $this->m_dah->get_data('dah_product_category')->result();
 
 		$config['base_url'] = base_url().'/index/shop/page/';
 		$config['total_rows'] = $posts->num_rows();
@@ -109,15 +110,7 @@ class Index extends CI_Controller {
 		if($id==""){
 			redirect(base_url());
 		}
-		if(!is_numeric($id)){
-			redirect(base_url());
-		}
-		if($this->uri->segment('4')==""){
-			redirect(base_url());
-		}
-		if(!is_numeric($this->uri->segment('4'))){
-			redirect(base_url());
-		}
+		
 
 		$posts = $this->m_dah->product_in_category($id);
 		$config['base_url'] = base_url().'/index/index/kategori_produk/page/';
@@ -199,6 +192,22 @@ class Index extends CI_Controller {
 			$data['terbaru'] = $this->m_dah->get_post_limit('publish',4)->result();
 			$this->load->view('cms/header');
 			$this->load->view('cms/category',$data);
+			$this->load->view('cms/footer');
+		}
+	}
+
+	public function cat_produk(){
+		$this->load->database();
+		$category = $this->uri->segment('3');
+		if($category == ""){
+			redirect(base_url());
+		}else{
+			$data['category_product'] = $this->db->query("select * from dah_product_category where pcat_sub='0' order by pcat_name asc")->result();
+		
+			$data['posts'] = $this->m_dah->post_in_category($category)->result();
+			$data['terbaru'] = $this->m_dah->get_post_limit('publish',4)->result();
+			$this->load->view('cms/header');
+			$this->load->view('cms/category_product',$data);
 			$this->load->view('cms/footer');
 		}
 	}
@@ -1059,5 +1068,97 @@ class Index extends CI_Controller {
 		}
 	}
 
+// start cari
+public function cari($rowno=0){
+	$this->load->database();
+	$this->load->library('session');
+	$this->load->library('pagination');		
 
+	$search_text = "";
+	if($this->input->post('submit') != NULL ){
+	  $search_text = $this->input->post('item');
+	  $this->session->set_userdata(array("search"=>$search_text));
+	}else{
+	  if($this->session->userdata('search') != NULL){
+		$search_text = $this->session->userdata('search');
+	  }
+	}
+
+	 // Row per page
+	 $rowperpage = 8;
+   
+	 // Row position
+	 if($rowno != 0){
+	   $rowno = ($rowno-1) * $rowperpage;
+	 }
+	 // All records count
+	 $allcount = $this->m_dah->getrecordProduct('Publish',$search_text);
+
+	 // Get records
+	 $users_record = $this->m_dah->search_product('Publish',$rowno,$rowperpage,$search_text)->result();
+
+	 $config['first_link']       = '<i class="fa fa-angle-left"></i><i class="fa fa-angle-left"></i>';
+	 $config['last_link']        = '<i class="fa fa-angle-right"></i><i class="fa fa-angle-right"></i>';
+	 $config['next_link']        = '<i class="material-icons">chevron_right</i>';
+	 $config['prev_link']        = '<i class="material-icons">chevron_left</i>';
+	 $config['full_tag_open']    = '<ul class="pagination ">';
+	 $config['full_tag_close']   = '</ul>';
+	 $config['num_tag_open']     = '<li class="waves-effect">';
+	 $config['num_tag_close']    = '</li>';
+	 $config['cur_tag_open']     = '<li class="waves-effect active"><a class="page-link">';
+	 $config['cur_tag_close']    = '</a></li>';
+	 $config['next_tag_open']    = '<li class="waves-effect">';
+	 $config['next_tagl_close']  = '</li>';
+	 $config['prev_tag_open']    = '<li class="waves-effect">';
+	 $config['prev_tagl_close']  = '/li>';
+	 $config['first_tag_open']   = '<li class="waves-effect">';
+	 $config['first_tagl_close'] = '</li>';
+	 $config['last_tag_open']    = '<li class="waves-effect">';
+	 $config['last_tagl_close']  = '</li>';				
+		// Pagination Configuration
+		$config['base_url'] = base_url().'index/cari';
+		$config['use_page_numbers'] = TRUE;
+		$config['total_rows'] = $allcount;
+		$config['per_page'] = $rowperpage;
+
+		// Initialize
+		$this->pagination->initialize($config);
+	
+		$data['pagination'] = $this->pagination->create_links();
+		$data['products'] = $users_record;
+		$data['row'] = $rowno;
+		$data['search'] = $search_text;
+						
+		$data['post'] = $this->m_dah->get_posts('Publish')->result();
+		$data['title'] = "Produk - ".get_option('blog_name');
+		$data['meta_description'] = strip_tags("Kumpulan source code aplikasi gratis terlengkap, sangat cocok untuk tugas kuliah, aplikasi tugas akhir dan aplikasi kerja praktek");
+		$data['meta_keywords'] = strip_tags("Kumpulan source code aplikasi gratis terlengkap");		
+		// $data['jumlah_product']=$this->m_dah->get_total_product()->row()->total;
+		$data['category_product'] = $this->db->query("select * from dah_product_category where pcat_sub='0' order by pcat_name asc")->result();
+			
+
+		$this->load->view('cms/header',$data);	
+		$this->load->view('cms/cari_page',$data);
+		$this->load->view('cms/footer');
+
+
+}
+
+// end cari
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// end index each }
 }

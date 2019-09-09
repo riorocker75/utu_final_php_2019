@@ -1090,7 +1090,8 @@ class Admin extends CI_Controller {
 		$jasa_kirim=$this->input->post('jasa_kirim');
 		$lokasi=$this->input->post('lokasi');
 		$proses_kirim=$this->input->post('proses_kirim');
-
+		$status="Publish";
+		
 		$this->form_validation->set_rules('nama','Product Name','required');		
 		$this->form_validation->set_rules('berat','Product berat','required');		
 		
@@ -1113,7 +1114,8 @@ class Admin extends CI_Controller {
 				'prod_tokopedia' => $tokopedia,
 				'prod_kirim' => $proses_kirim,
 				'prod_lokasi' => $lokasi,
-				'prod_jasa_kirim' =>$jasa_kirim
+				'prod_jasa_kirim' =>$jasa_kirim,
+				'prod_status' =>$status
 
 				);
 
