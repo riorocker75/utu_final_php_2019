@@ -29,13 +29,36 @@
           <div class="body-footer">
             <ul>
               <li>
-                <a href=""><i class="fas fa-envelope-open-text"></i> tes--support@gmail.com</a>
+            	 <a href=""><i class="fas fa-envelope-open-text" style="margin-right:4px;"></i> tes--support@gmail.com</a>
 			  </li>
 			  
 			  <li>
-                <a href=""><i class="fa fa-phone" aria-hidden="true"></i> 0852-8745-6390 </a>
+                <a href=""><i class="fa fa-phone" style="margin-right:4px;"></i> 0852-8745-6390 </a>
 			  </li>
 			  <li>
+				 <a href=""><i class="fa fa-address-book" style="margin-right:8px;"></i>Lhokseumawe, Bukit Indah</a> 
+			  </li>
+
+			  <li>
+				  
+				<p class="tx-14 green-text text-darken-2" style="margin-bottom:4px;margin-top:10px;">Temukan Kami di</p>
+				<div class="social-sec">
+					<div class="social-btn">
+						<a href="" title="Facebook"><i class="fab fa-facebook blue-text text-darken-4"></i></a>	
+					</div>
+					<div class="social-btn">
+						<a href="" title="Line"><i class="fab fa-line green-text text-accent-4"></i></a>	
+					</div>
+					<div class="social-btn">
+						<a href="" title="Whatsapp"><i class="fab fa-whatsapp green-text text-darken-4"></i></a>	
+					</div>	
+					<div class="social-btn">
+						<a href="" title="Telegram"><i class="fab fa-telegram blue-text text-accent-4"></i></a>	
+					</div>	
+				</div>
+			  </li>
+			  <br>
+			  <li class="d-md-block d-lg-none d-sm-block d-block">
 			  <div id="lokasi" style="max-width:100%; height:150px"></div>
 			  </li>
 			</ul>
@@ -46,7 +69,7 @@
 
         <div class="col-lg-3 col-md-6 col-sm-12 col-12">
             <div class="tittle-footer">
-                <h2>Kategory </h2>
+                <h2>Kategori </h2>
             </div>
   
             <div class="body-footer">

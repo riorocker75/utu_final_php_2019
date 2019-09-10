@@ -15,10 +15,7 @@
     <div>
       <img src="<?php echo base_url()?>dah_image/tester_img/tester3.png">
     </div>
-    
   </section>
-
-
 <!-- end carousel gambar -->
 
 <?php	if(count($products) > 0){?>
@@ -79,17 +76,67 @@
               <div class="prod-stats center">
                      <i class="fas fa-award"></i>    Segar
               </div>
-            </div>
-           
-      
+            </div>  
     </div>
-  <?php } ?> 
     
-
-      
-
-
+  <?php } ?> 
     </div>
+
+    <!-- start lvl 2 -->
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="dtl-txc-minat">
+                  <p class="tx-18 red-text text-accent-4 tx-bold-600">Apakah anda memiliki hasil pertanian ?</p>  
+                  <p class="tx-14" style="margin-top:-10px;">ayo jual hasil anda di kami, mendapatkan penghasilan tambahan dengan pembeli diseluruh indonesia</p>
+                  
+                  <a href="" class="btn-bordered-md bor-success" style="margin-left:0;">Mulai Menjual</a>
+
+            </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12 col-12">
+      <div class="dtl-txc-minat">
+            <p class="tx-18 orange-text text-accent-4 tx-bold-600">Bingung cari produk  ?</p>  
+            <p class="tx-14" style="margin-top:-10px;">Belanja di kami dengan berbagai macam hasil pertanian dari petani lokal, dengan hasil terbaik</p>
+            
+            <a href="<?php echo base_url().'shop'?>" class="btn-bordered-md bor-primary" style="margin-left:0;">Mulai Belanja</a>
+
+      </div>               
+
+      </div>
+    </div>
+                       
+
+    <div class="dtl-txc">
+      <div class="row">
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="dtl-txc-img">
+              <img src="<?php echo base_url()?>dah_image/system/payment-secure.png" alt="" srcset="">        
+                    <div class="dtl-txc-kosa">
+                        Transaksi di kami sangat aman, dan menjamin data pembeli tidak disalahgunakan 
+                    </div>
+              </div>
+                       
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="dtl-txc-img">
+                  <img src="<?php echo base_url()?>dah_image/system/fast-delivery.png">        
+                        <div class="dtl-txc-kosa">
+                            Pengiriman kami menjangkau seluruh daerah di Indonnesia, jadi jangan khawatir produk tidak sampai 
+                        </div>
+                  </div>
+          </div>
+          <div class="col-lg-4 col-md-4 col-sm-12 col-12">
+              <div class="dtl-txc-img">
+                      <img src="<?php echo base_url()?>dah_image/system/garansi.png" style="width:60px;height:60px;margin-top:-10px;margin-left:-10px">        
+                            <div class="dtl-txc-kosa">
+                               Pembelian anda akan aman, dikarenakan apabila produk dalam keadaan tidak sesuai uang anda dijamin kembali 
+                            </div>
+               </div>        
+
+          </div>               
+      </div>               
+    </div>
+    <!-- end lvl 2 -->
   <?php }else{?> 
     Product Masih Belum 
   <?php } ?> 
