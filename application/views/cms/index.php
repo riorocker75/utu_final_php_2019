@@ -4,7 +4,7 @@
 <div class="container">
 
 <!-- carousel gambar -->
-<section class="variable slider">
+<section class="variable slider" style="margin-bottom:40px;">
     <div>
       <img src="<?php echo base_url()?>dah_image/tester_img/tester.png">
     </div>
@@ -144,6 +144,6 @@
 <!-- end product -->
 
 
-<div class="chat-sess red accent-4 white-text ui-widget-content" id="draggable" title="Pindahkan aku kalau ganggu!">
-  <i class="far fa-comment tx-30"></i>
+<div class="chat-sess-flat pink accent-4 white-text " >
+ <i class="fas fa-comment-dots tx-30"></i>
   </div>

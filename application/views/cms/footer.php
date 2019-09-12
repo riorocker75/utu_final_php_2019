@@ -197,7 +197,7 @@
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
     <script src="<?php echo base_url()?>assets_front/js/core_utu.js"></script>
 	<script src="<?php echo base_url()?>assets_front/js/input-spinner.js" ></script>
 	<script src="<?php echo base_url()?>assets_front/js/slick.js" ></script>
@@ -210,7 +210,7 @@
 	  
 
 	  $(".variable").slick({
-        dots: true,
+      
         infinite: true,
 		variableWidth: true,
 		infinite: true,
@@ -252,11 +252,13 @@
 
 					$('body').on("click",".btn-bayarlangsung",function(){
 						var id = $(this).attr('id');
-						var data = "id="+id;
+						var jumlah_produk =document.getElementById('jumlah_produk').value;
+						var stock_hasil = document.getElementById('stock_hasil').value;
+					
 						$.ajax({
 							type: 'POST',
-							url: "<?php echo base_url(); ?>" + "index/addtocart",
-							data: data,
+							url: "<?php echo base_url(); ?>" + "index/addtocart2",
+							data: "id="+id +'&jumlah_produk='+jumlah_produk +'&stock_hasil='+stock_hasil,
 							success: function(){
 								window.location.replace("<?php echo base_url().'index/pembayaran'?>");
 							},

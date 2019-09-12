@@ -10,6 +10,7 @@
 	<link rel="icon" type="image/png" href="<?php echo base_url().'dah_image/system/logoutu1.png' ?>">
 	<!-- Global stylesheets -->
   <!-- core CSS -->
+
   	<link rel="stylesheet" href="<?php echo base_url() ?>assets_front/css/bootstrap.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/core_utu.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/dist/css/custom_utu.css">
@@ -19,6 +20,7 @@
     <!-- font -->
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/font-aw/css/all.css">
     <link rel="stylesheet" href="<?php echo base_url() ?>assets_front/material-icon/material-icon.css">
+
 
 	<!-- Core JS files -->
 
@@ -176,9 +178,9 @@
                  
                 </li>  
                 <?php if($this->session->userdata('user_status') != "login"){?>
-                <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-7px;">
-                  <a href="<?php echo base_url().'index/user_daftar'?>" class="btn-bordered-sm ">Daftar</a>
-                  <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm">Login</a>
+                <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-5px;">
+                    <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm tx-14" style="border:none!important">Masuk</a>
+                  <a href="<?php echo base_url().'index/user_daftar'?>" class="btn-bordered-sm tx-14">Daftar</a>
                 </li>  
               
                 <li class="d-lg-none u-md-block d-sm-inline-block">
@@ -365,7 +367,7 @@
         <div class="container">
             <ul class="navbar-nav mr-auto tx-14">
               <li class="nav-item active">
-                <a class="nav-link white-text" href="#">Home <span class="sr-only"></span></a>
+                <a class="nav-link white-text" href="<?php echo base_url().'shop'?>">Semua Produk <span class="sr-only"></span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link white-text" href="#">Tentang</a>

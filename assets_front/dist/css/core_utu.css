@@ -357,6 +357,14 @@ body {
   border-radius: 4px !important;
 }
 
+.notfound {
+  margin: 40px 0;
+}
+
+.notfound img {
+  max-width: 100%;
+}
+
 .cart-view {
   height: 30px;
   margin-bottom: -20px;

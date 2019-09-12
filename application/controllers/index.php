@@ -11,7 +11,11 @@ class Index extends CI_Controller {
 
 	function notfound(){
 		$this->load->database();
+		$this->load->view('cms/header');
 		$this->load->view('v_notfound');
+		$this->load->view('cms/footer');
+
+
 	}
 
 	public function index(){
@@ -211,7 +215,6 @@ class Index extends CI_Controller {
 			$this->load->view('cms/footer');
 		}
 	}
-
 	function addtocart(){
 		$this->load->database();
 		$id = $this->input->post('id');
@@ -233,6 +236,33 @@ class Index extends CI_Controller {
 			$this->cart->insert($data);
 		}
 	}
+
+	function addtocart2(){
+		$this->load->database();
+		$id = $this->input->post('id');
+		$jumlah_produk=$this->input->post('jumlah_produk');
+		$stock_hasil=$this->input->post('stock_hasil');
+
+		if($id == ""){
+			redirect(base_url());
+		}
+		$w = array('prod_id'=> $id);
+		$data = $this->m_dah->edit_data($w,'dah_products');
+		$produk = $data->result();
+		foreach($produk as $p){
+			$data = array(
+				'id' => $p->prod_id,
+				'name' => $p->prod_name,
+				'price' => $p->prod_price,
+				'qty' => $jumlah_produk,
+				'options' => array('gambar'=> $p->prod_img1)
+				);
+			$this->cart->product_name_rules = '[:print:]';
+			$this->cart->insert($data);
+		}
+	}
+
+	
 
 	function removefromcart($rowid){
 		$data = array(
@@ -928,11 +958,11 @@ class Index extends CI_Controller {
 			$data = json_decode($response1, true);
 			for($k=0; $k < count($data['rajaongkir']['results']); $k++) {
 				?>
-
+			<!-- pt pos indonesia -->
 				<div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>">
-					<h4>POS INDONESIA</h4>
+					<h4 class="tx-16"><img src="<?php echo base_url()?>dah_image/system/logo-pos.png" style="width:100px;height:40px"></h4>
 					<table class="table table-striped table-bordered table-hover">
-						<tr>
+						<tr class="tx-14">
 							<th class="text-center col-md-1">No.</th>
 							<th>Jenis Layanan</th>
 							<th class="text-center">ETD</th>
@@ -948,9 +978,9 @@ class Index extends CI_Controller {
 									<b><p><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></b><br/>
 									<small><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['description'];?></small></p>
 								</td>
-								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> days</td>
-								<td class="text-center"><?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
-								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span>Pilih</span></label></div></td>
+								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?></td>
+								<td class="text-center tx-bold-600">Rp. <?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
+								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span> pilih</span></label></div></td>
 							</tr>
 							<?php
 						}
@@ -963,11 +993,11 @@ class Index extends CI_Controller {
 			$data = json_decode($response2, true);
 			for($k=0; $k < count($data['rajaongkir']['results']); $k++) {
 				?>
-
+				<!-- tiki -->
 				<div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>">
-					<h4>TIKI</h4>
+					<h4 class="tx-16"><img src="<?php echo base_url()?>dah_image/system/logo-tiki.png" style="width:100px;height:40px"></h4>
 					<table class="table table-striped table-bordered table-hover">
-						<tr>
+						<tr class="tx-14">
 							<th class="text-center col-md-1">No.</th>
 							<th>Jenis Layanan</th>
 							<th class="text-center">ETD</th>
@@ -983,9 +1013,9 @@ class Index extends CI_Controller {
 									<b><p><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></b><br/>
 									<small><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['description'];?></small></p>
 								</td>
-								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> days</td>
-								<td class="text-center"><?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
-								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span>Pilih</span></label></div></td>
+								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> hari</td>
+								<td class="text-center tx-bold-600">Rp. <?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
+								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span> pilih</span></label></div></td>
 							</tr>
 							<?php
 						}
@@ -1000,9 +1030,9 @@ class Index extends CI_Controller {
 				?>
 
 				<div title="<?php echo strtoupper($data['rajaongkir']['results'][$k]['name']);?>">
-					<h4>JNE</h4>
+					<h4 class="tx-16"><img src="<?php echo base_url()?>dah_image/system/logo-jne.png" style="width:100px;height:40px"></h4>
 					<table class="table table-striped table-bordered table-hover">
-						<tr>
+						<tr class="tx-14">
 							<th class="text-center col-md-1">No.</th>
 							<th>Jenis Layanan</th>
 							<th class="text-center">ETD</th>
@@ -1018,9 +1048,9 @@ class Index extends CI_Controller {
 									<b><p><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?></b><br/>
 									<small><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['description'];?></small></p>
 								</td>
-								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> days</td>
-								<td class="text-center"><?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
-								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span>Pilih</span></label></div></td>
+								<td class="text-center"><?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['etd'];?> hari</td>
+								<td class="text-center tx-bold-600">Rp. <?php echo number_format($data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value']);?></td>
+								<td class="text-center"><div class="radio"><label><input type="radio" name="kurir" class="pilih-kurir" id="<?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['cost'][0]['value'];?>" required="required" value="<?php echo $data['rajaongkir']['results'][$k]['code'];?> - <?php echo $data['rajaongkir']['results'][$k]['costs'][$l]['service'];?>"><span> pilih</span></label></div></td>
 							</tr>
 							<?php
 						}
