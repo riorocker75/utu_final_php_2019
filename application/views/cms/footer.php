@@ -409,9 +409,6 @@
     </script>  
 	
 	<script>
-  
-
-
       function initMap() {
 	  var map;
 	  var lok={lat: 5.2030553, lng: 97.0612123};
@@ -430,6 +427,10 @@
     </script>	
 
  	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDVbyFOcEs46t1t4srUIKVZIfZpSXsbiN8&callback=initMap" async defer></script>
+
+	
+
+
 
   </body>
 </html>

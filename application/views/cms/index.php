@@ -18,6 +18,79 @@
   </section>
 <!-- end carousel gambar -->
 
+
+<!-- categori -->
+<div class="cat-index">
+    <p class="tx-16 tx-bold-600" style="margin-bottom:2px;">Kategori</p> 
+    <div class="row">
+      
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
+
+        <a href="">
+          <div class="cat-index-body">
+              <div class="cat-ib-img">
+                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-kentang.png" alt="" srcset="">
+              </div>
+
+              <div class="cat-ib-title">
+              Produk Kentang
+              </div>
+          </div>
+          </a>
+
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+    
+              <a href="">
+              <div class="cat-index-body">
+                  <div class="cat-ib-img">
+                      <img src="<?php echo base_url()?>dah_image/icon-cate/icon-bawang.png" alt="" srcset="">
+                  </div>
+
+                  <div class="cat-ib-title">
+                  Produk Bawang
+                  </div>
+              </div>
+              </a>
+       
+        </div>
+      
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+           
+                  <a href="">
+                <div class="cat-index-body">
+                    <div class="cat-ib-img">
+                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-ubi.png" alt="" srcset="">
+                    </div>
+
+                    <div class="cat-ib-title">
+                    Produk Ubi
+                    </div>
+                </div>
+                </a>
+             
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+       
+          <a href="">
+                <div class="cat-index-body">
+                    <div class="cat-ib-img">
+                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-wortel.png" alt="" srcset="">
+                    </div>
+
+                    <div class="cat-ib-title">
+                    Produk Wortel
+                    </div>
+                </div>
+                </a>
+            </div>  
+      
+
+    </div>
+</div>
+
+<!-- end categori -->
+
 <?php	if(count($products) > 0){?>
     <div class="row">
     <?php 	foreach($products as $p){?>
@@ -86,16 +159,16 @@
     <div class="row">
       <div class="col-lg-6 col-md-12 col-sm-12 col-12">
             <div class="dtl-txc-minat">
-                  <p class="tx-18 red-text text-accent-4 tx-bold-600">Apakah anda memiliki hasil pertanian ?</p>  
+                  <p class="tx-18 red-text text-accent-4 tx-bold-600">Apakah anda memiliki hasil pertanian umbi-umbian?</p>  
                   <p class="tx-14" style="margin-top:-10px;">ayo jual hasil anda di kami, mendapatkan penghasilan tambahan dengan pembeli diseluruh indonesia</p>
                   
-                  <a href="" class="btn-bordered-md bor-success" style="margin-left:0;">Mulai Menjual</a>
+                  <a href="<?php echo base_url().'daftar-petani'?>" class="btn-bordered-md bor-success" style="margin-left:0;">Mulai Menjual</a>
 
             </div>
       </div>
       <div class="col-lg-6 col-md-12 col-sm-12 col-12">
       <div class="dtl-txc-minat">
-            <p class="tx-18 orange-text text-accent-4 tx-bold-600">Bingung cari produk  ?</p>  
+            <p class="tx-18 orange-text text-accent-4 tx-bold-600">Bingung cari produk umbi-umbian ?</p>  
             <p class="tx-14" style="margin-top:-10px;">Belanja di kami dengan berbagai macam hasil pertanian dari petani lokal, dengan hasil terbaik</p>
             
             <a href="<?php echo base_url().'shop'?>" class="btn-bordered-md bor-primary" style="margin-left:0;">Mulai Belanja</a>

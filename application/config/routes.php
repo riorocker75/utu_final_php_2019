@@ -58,6 +58,9 @@ $route['page/(:num)-(:any)'] = "index/page/$1/$2";
 $route['shop']="index/shop";
 $route['search']="index/cari";
 
+$route['daftar-petani']="petani/daftar_petani";
+
+
 
 
 

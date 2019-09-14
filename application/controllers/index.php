@@ -92,6 +92,8 @@ class Index extends CI_Controller {
 		$this->load->view('cms/footer');
 	}
 
+
+
 	public function product_detail($prod){
 		$this->load->database();
 		$this->load->helper('ongkir_helper');

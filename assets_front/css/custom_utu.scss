@@ -161,6 +161,7 @@
   box-shadow: $box-shadow-card;
   display: block;
   z-index:-1;
+  border:1px solid transparent;
 }
 .prod-stats{
   background:#ff5722;
@@ -553,6 +554,15 @@ font-size: 16px;
 // product-gird
 .product-gird {
   margin-top: 30px;
+  .row{
+    margin-right: 0;
+    margin-left: 0;
+    & > [class^="col-"],
+    & > [class*=" col-"] {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
 }
 // sidebar form-product-gird
 .product-sidebar-form {
@@ -609,6 +619,7 @@ font-size: 16px;
   background: #fff;
   margin-bottom: 20px;
   border-radius: 4px;
+  border:1px solid transparent;
 }
 
 .product-mg-img {
@@ -1281,3 +1292,76 @@ box-shadow: $box-shadow-1dp;
   
 }
 // end laman pembayaran
+
+
+// cateori inde
+.cat-index{
+  border-radius: 4px!important;
+  margin-bottom:25px;
+
+        .row{
+          margin-right: 0;
+          margin-left: 0;
+          & > [class^="col-"],
+          & > [class*=" col-"] {
+            padding-right: 3px;
+            padding-left: 3px;
+          }
+        }
+
+      .cat-index-body .cat-ib-title a{
+        display: block;
+      }  
+      * {
+        box-sizing: border-box;
+      }
+      
+}
+.cat-index-body{
+  background:#fff;
+  padding :12px 15px!important;
+  margin-bottom: 5px;
+  border:1px solid transparent;
+  display: -ms-flexbox;
+	display: -webkit-box;
+	display: flex;
+	-ms-flex-flow: row wrap;
+	-webkit-box-orient: horizontal;
+	-webkit-box-direction: normal;
+	flex-flow: row wrap;
+	padding: 5px 5px;
+
+  margin-top: 8px;
+  
+  -webkit-transition: all .3s ease-out;
+    -o-transition: all .3s ease-out;
+    transition: all .3s ease-out;
+}
+.cat-index-body:hover{
+  border:1px solid #00897b;
+  box-shadow: $box-shadow-8dp
+}
+
+.cat-ib-img{
+  margin-left:5px;
+	img {	width: 30px;height: 30px;}
+}
+
+.cat-ib-title{
+  -ms-flex: 1 0;
+	-webkit-box-flex: 1;
+	flex: 1 0;
+	-webkit-align-self: flex-start;
+	-ms-flex-item-align: start;
+	align-self: flex-start;
+	padding: 0px 5px 5px 10px !important;
+	margin-top: 7px;
+
+  margin-left:3px;
+  font-family: $robosans;
+  font-size: 12px;
+  text-decoration: none;
+  color:#000;
+  
+}
+// end categori index

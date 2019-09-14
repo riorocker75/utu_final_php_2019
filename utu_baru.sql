@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2019 at 05:07 PM
+-- Generation Time: Sep 14, 2019 at 11:47 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.1.28
 
@@ -21,6 +21,20 @@ SET time_zone = "+00:00";
 --
 -- Database: `utu_baru`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `core_rating`
+--
+
+CREATE TABLE `core_rating` (
+  `rating_id` int(24) NOT NULL,
+  `rating_product_id` text NOT NULL,
+  `rating_user_id` text NOT NULL,
+  `rating_star` text NOT NULL,
+  `rating_komen` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -314,7 +328,8 @@ CREATE TABLE `dah_users` (
 
 INSERT INTO `dah_users` (`user_id`, `user_name`, `user_email`, `user_login`, `user_pass`, `user_level`, `user_status`) VALUES
 (1, 'Diki Alfarabi Hadi', 'dikialfarabihadi@gmail.com', 'diki', 'dffaa4c60a250f19dc4a79b1d05c8d53', 'admin', 1),
-(2, 'muzanni', 'moezanni@gmail.com', 'muzanni', '6e413ea6a2bb937b9106fa21004965da', 'admin', 1);
+(2, 'muzanni', 'moezanni@gmail.com', 'muzanni', '6e413ea6a2bb937b9106fa21004965da', 'admin', 1),
+(3, 'Azizi', 'tesdaftar@admin.com', 'pembeli', 'd8578edf8458ce06fbc5bb76a58c5ca4', 'author', 1);
 
 -- --------------------------------------------------------
 
@@ -1789,6 +1804,12 @@ INSERT INTO `user` (`id`, `email`, `nama`, `password`, `status`, `telp`, `alamat
 --
 
 --
+-- Indexes for table `core_rating`
+--
+ALTER TABLE `core_rating`
+  ADD PRIMARY KEY (`rating_id`);
+
+--
 -- Indexes for table `dah_category`
 --
 ALTER TABLE `dah_category`
@@ -1877,6 +1898,12 @@ ALTER TABLE `user`
 --
 
 --
+-- AUTO_INCREMENT for table `core_rating`
+--
+ALTER TABLE `core_rating`
+  MODIFY `rating_id` int(24) NOT NULL AUTO_INCREMENT;
+
+--
 -- AUTO_INCREMENT for table `dah_category`
 --
 ALTER TABLE `dah_category`
@@ -1928,7 +1955,7 @@ ALTER TABLE `dah_taxonomy`
 -- AUTO_INCREMENT for table `dah_users`
 --
 ALTER TABLE `dah_users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `dah_visitor`

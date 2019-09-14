@@ -171,6 +171,7 @@
           box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.12), 0 1px 5px 0 rgba(0, 0, 0, 0.2);
   display: block;
   z-index: -1;
+  border: 1px solid transparent;
 }
 
 .prod-stats {
@@ -614,6 +615,17 @@ a.prod-price {
   margin-top: 30px;
 }
 
+.product-gird .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.product-gird .row > [class^="col-"],
+.product-gird .row > [class*=" col-"] {
+  padding-right: 5px;
+  padding-left: 5px;
+}
+
 .product-sidebar-form {
   margin-bottom: 20px;
   max-width: 100%;
@@ -690,6 +702,7 @@ a.prod-price {
   background: #fff;
   margin-bottom: 20px;
   border-radius: 4px;
+  border: 1px solid transparent;
 }
 
 .product-mg-img {
@@ -1232,4 +1245,78 @@ a.prod-price {
 
 .laman-bayar-body {
   padding: 20px 15px;
+}
+
+.cat-index {
+  border-radius: 4px !important;
+  margin-bottom: 25px;
+}
+
+.cat-index .row {
+  margin-right: 0;
+  margin-left: 0;
+}
+
+.cat-index .row > [class^="col-"],
+.cat-index .row > [class*=" col-"] {
+  padding-right: 3px;
+  padding-left: 3px;
+}
+
+.cat-index .cat-index-body .cat-ib-title a {
+  display: block;
+}
+
+.cat-index * {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.cat-index-body {
+  background: #fff;
+  padding: 12px 15px !important;
+  margin-bottom: 5px;
+  border: 1px solid transparent;
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-flow: row wrap;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-flow: row wrap;
+  padding: 5px 5px;
+  margin-top: 8px;
+  -webkit-transition: all .3s ease-out;
+  transition: all .3s ease-out;
+}
+
+.cat-index-body:hover {
+  border: 1px solid #00897b;
+  -webkit-box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 10px 1px rgba(0, 0, 0, 0.14), 0 3px 14px 2px rgba(0, 0, 0, 0.12), 0 5px 5px -3px rgba(0, 0, 0, 0.2);
+}
+
+.cat-ib-img {
+  margin-left: 5px;
+}
+
+.cat-ib-img img {
+  width: 30px;
+  height: 30px;
+}
+
+.cat-ib-title {
+  -ms-flex: 1 0;
+  -webkit-box-flex: 1;
+  flex: 1 0;
+  -webkit-align-self: flex-start;
+  -ms-flex-item-align: start;
+  align-self: flex-start;
+  padding: 0px 5px 5px 10px !important;
+  margin-top: 7px;
+  margin-left: 3px;
+  font-family: "Open Sans", sans-serif;
+  font-size: 12px;
+  text-decoration: none;
+  color: #000;
 }
