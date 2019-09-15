@@ -1062,8 +1062,11 @@ class Admin extends CI_Controller {
 
 	// product
 	function products(){		
-		$this->load->database();				
+		$this->load->database();
+		$user_id=$this->session->userdata('id');				
 		$data['products'] = $this->m_dah->get_data_order('desc','prod_id','dah_products')->result();		
+		$data['produk_user'] = $this->m_dah->get_susun_product($user_id,'Publish')->result();		
+		
 		$this->load->view('admin/v_header');
 		$this->load->view('admin/v_product',$data);
 		$this->load->view('admin/v_footer');	

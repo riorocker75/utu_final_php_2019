@@ -19,6 +19,8 @@ class User extends CI_Controller {
 			'id' => $id
 			);
 		$data['profil'] = $this->m_dah->edit_data($w,'user')->result();
+		$data['notif_invoice'] = $this->m_dah->get_susun_invoice($id,0)->num_rows();
+
 		$this->load->view('cms/header');
 		$this->load->view('cms/user_index',$data);
 		$this->load->view('cms/footer');
@@ -119,6 +121,7 @@ class User extends CI_Controller {
 			'user_id' => $this->session->userdata('user_id')
 			);
 		$data['invoice'] = $this->m_dah->edit_data_order($w,'invoice','id','desc')->result();
+		
 		$this->load->view('cms/header');
 		$this->load->view('cms/user_invoice',$data);
 		$this->load->view('cms/footer');

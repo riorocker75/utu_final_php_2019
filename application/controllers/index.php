@@ -21,7 +21,9 @@ class Index extends CI_Controller {
 	public function index(){
 		$this->load->database();
 		$this->load->library('pagination');
+		$id=$this->session->userdata('user_id');
 		$posts = $this->m_dah->get_data_order('desc','prod_id','dah_products');
+		$data['notif_invoice'] = $this->m_dah->get_susun_invoice($id,0)->num_rows();
 
 		$config['base_url'] = base_url().'/index/index/page/';
 		$config['total_rows'] = $posts->num_rows();
@@ -36,6 +38,7 @@ class Index extends CI_Controller {
 		$this->pagination->initialize($config);
 		$dari = $this->uri->segment('4');
 		$data['products'] = $this->m_dah->get_product_paging($config['per_page'],$dari)->result();
+
 		$data['category_product'] = $this->db->query("select * from dah_product_category where pcat_sub='0' order by pcat_name asc")->result();
 		$this->load->view('cms/header',$data);
 		$this->load->view('cms/index',$data);

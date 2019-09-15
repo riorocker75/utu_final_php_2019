@@ -183,5 +183,25 @@ class M_dah extends CI_Model{
 
 	// end pencarian
 
+	// susun product
+
+	function get_susun_product($product_author,$status){
+		
+		return $this->db->query("select * from dah_products where (prod_author = '$product_author') and (prod_status = '$status')  order by prod_date desc");
+
+	}
+
+	function get_susun_invoice($id_buyer,$status){
+		
+		return $this->db->query("select * from invoice where (user_id = '$id_buyer') and (status = '$status')  order by tgl desc");
+
+	}
+
+	// end susun poduct
+
+
+
+
+
 }
 ?>

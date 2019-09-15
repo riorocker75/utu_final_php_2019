@@ -23,6 +23,7 @@
 
 
 	<!-- Core JS files -->
+  <script src="<?php echo base_url()?>assets_front/js/jquery.min.js" ></script>
 
 	<!-- Theme JS files -->
 
@@ -62,16 +63,15 @@
         <div class="float-right">
           <ul class="search-right">
             
-              <!-- <li>
-                  <a href=""><i class="fa fa-user"></i></a>
-              </li> -->
+            
+            
 
                 <li>
                   <!-- start cart aksi -->
                    <?php if(count($this->cart->contents())>0){ ?>
                     <div class="cart-view">
                         <p> 
-                          <a><i class="fa fa-cart-arrow-down"></i></a>
+                          <a ><i class="fa fa-cart-arrow-down"></i></a>
                           <span><?php echo count($this->cart->contents()); ?></span>
                         </p>
 
@@ -175,11 +175,13 @@
                     </div>
                     <?php } ?>
                    <!-- end cart aksi    -->
-                 
                 </li>  
+
+              
+
                 <?php if($this->session->userdata('user_status') != "login"){?>
                 <li class="d-sm-none d-md-none u-lg-block" style="margin-top:-5px;">
-                    <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm tx-14" style="border:none!important">Masuk</a>
+                    <a href="" data-toggle="modal" data-target="#login-pembeli" class="btn-bordered-sm tx-14" style="margin-right:-5px;border:none!important">Masuk</a>
                   <a href="<?php echo base_url().'index/user_daftar'?>" class="btn-bordered-sm tx-14">Daftar</a>
                 </li>  
               
@@ -188,6 +190,100 @@
                 </li>
 
               <?php }else{?>
+
+                 <!-- notif start -->
+              <li>
+          
+          <?php
+          $id=$this->session->userdata('user_id');
+          $notif_inv=$this->m_dah->get_susun_invoice($id,0)->num_rows();
+          $notif_invoices=$this->m_dah->get_susun_invoice($id,0)->result();
+
+          if($notif_inv > 0){ 
+            ?>
+           <div class="cart-view">
+               <p> 
+                 <a><i class="far fa-bell"></i></a>
+                 <span><?php echo $notif_inv?></span>
+               </p>
+
+               <div class="ket-cart">
+                 <div class="identity-cart">
+                   <i class="fa fa-caret-up" aria-hidden="true"></i>
+                 </div>
+                
+                 <div class="ket-cart-title">
+                    Notifikasi Pembayaran
+                 </div>
+                 <?php if($notif_inv > 0){ ?>
+                     <div class="ket-cart-body" style="padding:0">
+                     
+                   
+                        <?php foreach($notif_invoices as $inc){ ?>
+                          <a href="<?php echo base_url().'user/invoice_detail/'.$inc->id ?>" > 
+                            <div class="notif-body">
+                            <a href="<?php echo base_url().'user/invoice_detail/'.$inc->id ?>" class="blue-text text-accsent-3 tx-14 tx-bold-600"> <?php echo $inc->no?></a>
+                            <p class=" tx-12">Rp <?php echo number_format($inc->pembayaran)?></p>
+                            <label class="labil labil-danger tx-10">Harap dibayar</label>
+                            </div>
+                            </a>
+                        <?php }?>
+                      
+                       
+                     </div>
+                     <!-- end body cart -->
+
+                     
+                 <?php }else{?>
+                   <div class="ket-cart-body">
+                   <i class="fa fa-bell-slash tx-40" style="text-align:center"></i>
+                     <p style="color:#000;font-size:13px;text-align:center;opacity:0.6">Belum Ada Notifikasi terbaru</p>  
+                   </div>
+
+                   <div class="ket-cart-footer">
+                    <a href="<?php echo base_url().'index/shop'; ?>"> Belanja dulu ya </a>
+                   </div>
+                 <?php }?> 
+                 
+                
+               </div>
+
+               
+           </div>
+           <?php }else{ ?>
+             <div class="cart-view">
+               <p> 
+                 <a><i class="far fa-bell"></i></a>
+             
+               </p>
+
+               <div class="ket-cart">
+                 <div class="identity-cart">
+                   <i class="fa fa-caret-up" aria-hidden="true"></i>
+                 </div>
+                
+                 <div class="ket-cart-title">
+                     Notifikasi <b class="float-right tx-bold-500 tx-14">()</b>
+                 </div>
+               
+                   
+                   <div class="ket-cart-body">
+                   <i class="fa fa-bell-slash tx-40 d-flex justify-content-center" ></i>
+                     <p style="color:#000;font-size:13px;text-align:center;opacity:0.6">Belum Ada Notifikasi terbaru</p>  
+                   </div>
+
+                   <div class="ket-cart-footer">
+                    <a href="<?php echo base_url().'index/shop'; ?>"> Belanja dulu ya </a>
+                   </div>
+               </div>
+           </div>
+           <?php } ?>
+     
+        
+       </li>  
+
+                <!-- end notif --> 
+
               <li class="has_dropdown_side">
                     <a href="#" class="">
                     <i class="fa fa-user white-text" aria-hidden="true"></i></a>

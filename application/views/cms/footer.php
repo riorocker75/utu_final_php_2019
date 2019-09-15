@@ -179,8 +179,11 @@
              <div class="col-12" style="margin-top:10px;">
                <button type="submit" class="btn-login-fullwidth bor-login"> Masuk <i class="fas fa-sign-in-alt"></i></button>
 
-             </div>
+			 </div>
+				 <div class="d-flex justify-content-center">
 
+				 <a data-toggle="modal" data-target="#login-penjual" id="log-jual" class="tx-12 labil labil-success white-text" style="text-transform:none;cursor:pointer">Masuk Ke Toko</a>
+				</div>
 
         
           </div>
@@ -193,7 +196,80 @@
 <!-- end modal login dan daftar -->
 
 
-    <script src="<?php echo base_url()?>assets_front/js/jquery.min.js" ></script>
+
+<!-- modal login dan daftar penjual-->
+<!-- Modal -->
+<div class="modal fade modal-login" id="login-penjual" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Masuk ke Toko</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form action="<?php echo base_url().'petani/login_act' ?>" method="post">
+        <div class="modal-body">  
+        <div class="form-group">
+             
+              <input type="text" class="form-control tx-14" name="uname"   placeholder="Username">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+          </div>
+        <div class="form-group">
+      
+          <input type="password" class="form-control tx-14" name="pass" placeholder="Password">
+        </div>
+
+             <div class="row">
+                <div class="col-6">
+                 <a href="" class=" float-left tx-13 red-text text-darken-4 tx-bold-600">Lupa Password ?</a> 
+                 
+                </div>
+                <div class="col-6 ">
+                   <a href="<?php echo base_url().'petani/daftar_petani';?>" class="float-right tx-13 blue-text text-darken-2 tx-bold-600">Daftar menjadi penjual</a>
+                </div>
+
+             </div>
+
+             <div class="col-12" style="margin-top:10px;">
+               <button type="submit" class="btn-login-fullwidth bor-login"> Masuk <i class="fas fa-sign-in-alt"></i></button>
+
+			 </div>
+				
+
+        
+          </div>
+      </form>
+     
+    </div>
+  </div>
+</div>
+
+<!-- end modal login dan daftar -->
+
+<!-- modal promo -->
+
+
+<div class="modal fade bd-example-modal-lg " id="promo-mod" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+  
+    <div class="modal-content">
+		<div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLongTitle"> <i class="fa fa-bullhorn red-text text-accsent-3" style="margin-right:5px;"></i> Promo User Baru</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+			<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+			tes	
+
+		<div class="modal-footer">
+        <a id="close-promo" data-dismiss="modal" class="tx-14 " style="padding:8px 20px;border:2px solid #00695c;cursor:pointer;">Jangan Tampilin Promo</a>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- end modal promo -->
+
     <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>   
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -201,7 +277,7 @@
     <script src="<?php echo base_url()?>assets_front/js/core_utu.js"></script>
 	<script src="<?php echo base_url()?>assets_front/js/input-spinner.js" ></script>
 	<script src="<?php echo base_url()?>assets_front/js/slick.js" ></script>
-
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-cookie/1.4.0/jquery.cookie.min.js"></script>
 
     <script>
       $( function() {
@@ -219,7 +295,85 @@
 		centerMode: true,
 		autoplay: true,
   		autoplaySpeed: 5000,
-      });
+	  });
+	  
+	  $(document).ready(function(){
+		$("#log-jual").click(function(){
+			$("#login-pembeli").fadeOut();
+			$(".modal-backdrop").fadeOut();
+
+		});	
+
+	  });
+	  $( document ).ready(function() {
+			// load the overlay
+	
+		
+		// if (document.cookie.indexOf('visited=true') == -1){
+			
+		// 	// var year = 1000*60*60*24;
+		// 	// var fminute = 1000*15*60;
+
+		// 	var expires = new Date((new Date()).valueOf() + fminute);
+		// 	document.cookie = "visited=true;expires=" + expires.toUTCString();
+
+		// }
+	}); 
+
+	// chat
+	
+	$(document).ready(function () {
+		$('.grt-close').click(function () { 
+				$('#chat-body').slideUp();
+			});
+			$('#chat-sess').click(function () { 
+				$('.chat-sess-body').fadeIn();	
+			});
+	});
+
+	$(document).ready(function () {
+		var cek_jam= new Date().getHours();
+		var pesan;
+		var pagi=('Selamat Pagi');
+		var siang=('Selamat Siang');
+		var sore=('Selamat Sore');
+		var malam=('Selamat Malam');
+
+		if(cek_jam >= 0 && cek_jam < 10 ){
+			pesan = pagi;
+		}else if(cek_jam >= 10 && cek_jam < 15){
+			pesan = siang;
+		}else if(cek_jam >=15 && cek_jam < 18){
+			pesan = sore;
+		}else if(cek_jam >=18 && cek_jam < 24){
+			pesan = malam;
+		}
+		$('#pesan-hari').append(pesan);	
+
+	});
+
+	// end chat
+
+	$( document ).ready(function() {
+		var day = 1000*15*60;
+		var expires = new Date((new Date()).valueOf() + day);
+		if ($.cookie("sehari_close") == null) {
+
+			// Show the modal, with delay func.
+			$('#promo-mod').appendTo("body");
+			function show_modal(){
+			$('#promo-mod').modal();
+			}
+
+		// Set delay func. time in milliseconds
+		window.setTimeout(show_modal, 1000);
+		}
+		$('#close-promo').click(function () { 
+			document.cookie = "sehari_close=true;expires=" + expires.toUTCString();
+		});
+
+
+	}); 	
       </script>
 
 <script type="text/javascript">

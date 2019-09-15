@@ -152,9 +152,29 @@
 
 	<?php }else{?>
 		<div class="container center">
+        <section class="product-gird">
+            <div class="container">
+                <div class="row" >
+            <!-- sidebar product-gird -->
+            <?php include "sidebar_shop.php"?>
+            <!-- end sidebar -->
+                <div class="col-lg-9 col-md-7 col-sm-12 col-12">
+                    <div class="not-avail d-flex justify-content-center">
+                        <img src="<?php echo base_url()?>dah_image/system/unhappy.png">
+                       
+                    </div>
+                    <div style="text-align:center;margin-top:20px">
+                    <p class="tx-20 red-text">Oopps !!</p>
 
-			Product Belum ada di post
-		</div>
+                    <p class="tx-20 red-text">Product di Kategori <b><?php echo $kategori_produk; ?></b> Belum Tersedia</p>
+                    </div>
+               
+                </div>
+            </div>
+            </div>
+        </section>
+        </div>
+        
 	<?php }?>
 
 <!-- end product-gird -->

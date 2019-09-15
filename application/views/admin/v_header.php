@@ -158,7 +158,7 @@
 								<div class="media-body">
 									<span class="media-heading text-semibold"><?php echo $this->session->userdata('name') ?></span>
 									<div class="text-size-mini text-muted">
-										<i class="icon-pin text-size-small"></i> &nbsp;Santa Ana, CA
+										<i class="icon-pin text-size-small"></i> &nbsp;Aceh Barat, Indonesia
 									</div>
 								</div>							
 							</div>
@@ -168,7 +168,7 @@
 
 
 					<!-- Main navigation -->
-					<div class="sidebar-category sidebar-category-visible">
+					<div class="sidebar-category sidebar-category-visible" style="min-height:100vh">
 						<div class="category-content no-padding">
 							<ul class="navigation navigation-main navigation-accordion">
 

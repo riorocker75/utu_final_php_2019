@@ -26,10 +26,10 @@
       
         <div class="col-lg-3 col-md-4 col-sm-6 col-6 ">
 
-        <a href="">
+        <a href="<?php echo base_url().'index/kategori_produk/6'?>">
           <div class="cat-index-body">
               <div class="cat-ib-img">
-                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-kentang.png" alt="" srcset="">
+                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-kentang.png">
               </div>
 
               <div class="cat-ib-title">
@@ -41,10 +41,10 @@
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
     
-              <a href="">
+              <a href="<?php echo base_url().'index/kategori_produk/29'?>">
               <div class="cat-index-body">
                   <div class="cat-ib-img">
-                      <img src="<?php echo base_url()?>dah_image/icon-cate/icon-bawang.png" alt="" srcset="">
+                      <img src="<?php echo base_url()?>dah_image/icon-cate/icon-bawang.png">
                   </div>
 
                   <div class="cat-ib-title">
@@ -57,10 +57,10 @@
       
         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
            
-                  <a href="">
+                  <a href="<?php echo base_url().'index/kategori_produk/17'?>">
                 <div class="cat-index-body">
                     <div class="cat-ib-img">
-                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-ubi.png" alt="" srcset="">
+                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-ubi.png">
                     </div>
 
                     <div class="cat-ib-title">
@@ -72,10 +72,10 @@
         </div>
         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
        
-          <a href="">
+          <a href="<?php echo base_url().'index/kategori_produk/30'?>">
                 <div class="cat-index-body">
                     <div class="cat-ib-img">
-                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-wortel.png" alt="" srcset="">
+                        <img src="<?php echo base_url()?>dah_image/icon-cate/icon-wortel.png">
                     </div>
 
                     <div class="cat-ib-title">
@@ -83,7 +83,68 @@
                     </div>
                 </div>
                 </a>
-            </div>  
+            </div>
+            
+            <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+       
+          <a href="<?php echo base_url().'index/kategori_produk/32'?>">
+             <div class="cat-index-body">
+                 <div class="cat-ib-img">
+                     <img src="<?php echo base_url()?>dah_image/icon-cate/icon-lobak.png">
+                 </div>
+
+                 <div class="cat-ib-title">
+                 Produk Lobak
+                 </div>
+             </div>
+             </a>
+         </div>
+         
+         <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+       
+       <a href="<?php echo base_url().'index/kategori_produk/33'?>">
+          <div class="cat-index-body">
+              <div class="cat-ib-img">
+                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-jicama.png">
+              </div>
+
+              <div class="cat-ib-title">
+              Produk Bengkuang
+              </div>
+          </div>
+          </a>
+      </div>
+
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+       
+       <a href="<?php echo base_url().'index/kategori_produk/34'?>">
+          <div class="cat-index-body">
+              <div class="cat-ib-img">
+                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-talas.png">
+              </div>
+
+              <div class="cat-ib-title">
+              Produk Talas
+              </div>
+          </div>
+          </a>
+      </div>
+
+      
+      <div class="col-lg-3 col-md-4 col-sm-6 col-6">
+       
+       <a href="<?php echo base_url().'index/kategori_produk/31'?>">
+          <div class="cat-index-body">
+              <div class="cat-ib-img">
+                  <img src="<?php echo base_url()?>dah_image/icon-cate/icon-talas.png">
+              </div>
+
+              <div class="cat-ib-title">
+              Produk Garut
+              </div>
+          </div>
+          </a>
+      </div>
       
 
     </div>
@@ -92,6 +153,7 @@
 <!-- end categori -->
 
 <?php	if(count($products) > 0){?>
+  <p class="tx-16 tx-bold-600" style="margin-bottom:20px;">Baru di panen nih</p> 
     <div class="row">
     <?php 	foreach($products as $p){?>
       <div class="col-lg-3 col-md-6 col-sm-6 col-12">
@@ -183,7 +245,7 @@
       <div class="row">
           <div class="col-lg-4 col-md-4 col-sm-12 col-12">
               <div class="dtl-txc-img">
-              <img src="<?php echo base_url()?>dah_image/system/payment-secure.png" alt="" srcset="">        
+              <img src="<?php echo base_url()?>dah_image/system/payment-secure.png">        
                     <div class="dtl-txc-kosa">
                         Transaksi di kami sangat aman, dan menjamin data pembeli tidak disalahgunakan 
                     </div>
@@ -216,7 +278,46 @@
 </div>
 <!-- end product -->
 
+<div class="chat-sess-body" id="chat-body">
+    <div class="grt-close">
+      <a style="cursor:pointer"> <i class="fa fa-times red-text"></i> </a>
+    </div>
+  
+    <div class="grt-cs">
+    
+      <img src="<?php echo base_url()?>dah_image/system/supp.png" alt="">
+      <div class="grt-cs-isi">
+       <label id="pesan-hari"></label>,<br> Ada yang bisa kami bantu ?
+      
+      </div>
+    </div>
 
-<div class="chat-sess-flat pink accent-4 white-text " >
+    <div class="grt-wa" style="text-align:center;margin-top:15px">
+      <a href="" class="tx-13 white-text green darken-3" style="border-radius:8px; padding:8px 20px;"> <i class="fab fa-whatsapp tx-18"></i> Chat Kami Di Whatsapp</a>
+    </div>
+</div>
+<div class="chat-sess-flat pink accent-4 white-text " id="chat-sess">
  <i class="fas fa-comment-dots tx-30"></i>
-  </div>
+</div>
+
+<script>
+$(document).ready(function () {
+		$('<audio id="notif_sound"><source src="<?php echo base_url()?>dah_image/notif.mp3" type="audio/mpeg"></audio>').appendTo('body');
+		var sound_x = document.getElementById("notif_sound");
+		function chat_ses1(){
+			$('#chat-sess').fadeIn();
+		}
+		function playNotif() {
+			sound_x.play();
+		}
+		function bc_sess(){
+			$('.chat-sess-body').fadeIn();
+			$('#notif_sound')[0].play();
+		}
+		window.setTimeout(chat_ses1, 3000);
+		window.setTimeout(bc_sess, 4000);
+		window.setTimeout(playNotif, 4000);
+	
+	});
+
+</script>
